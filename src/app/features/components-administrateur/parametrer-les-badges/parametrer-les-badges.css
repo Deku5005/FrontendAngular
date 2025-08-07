@@ -129,6 +129,12 @@
     color: #0AB3D5;
 }
 
+h2{
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    
+}
+
 /* --------
    Media Queries pour responsivité
                       --------- */
