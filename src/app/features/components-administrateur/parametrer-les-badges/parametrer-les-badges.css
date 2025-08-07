@@ -1,0 +1,194 @@
+/* Styles généraux */
+#containerPrincipal {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+#haut {
+    margin-left: 5%;
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-top: 2%;
+}
+
+#AjoutBadges {
+    width: 150px;
+    height: 40px;
+    background-color: #2417DF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#conteneurBadges {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+#BadgeDeBronze {
+    width: 280px;
+    min-height: 200px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+#enteteBadges {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#descriptionBadge,
+#descriptionBadge2 {
+    width: 100%;
+    margin-bottom: 15px;
+    position: relative;
+    bottom: 20px;
+}
+
+#descriptionBadge2 {
+    margin-left: 10%;
+}
+
+#btns {
+    display: flex;
+    gap: 10%;
+    margin-top: auto;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.btnModifier,
+.btnSupprimer {
+    flex: 1;
+    height: 40px;
+    border-radius: 15px;
+    cursor: pointer;
+    border: none;
+    margin-right: 5px;
+}
+
+.btnModifier {
+    background-color: #2417DF;
+    color: white;
+}
+
+.btnSupprimer {
+    background-color: #ff0800;
+    color: white;
+}
+
+
+
+.iconeBadg {
+    margin-top: 8%;
+    width: 50px;
+    height: auto;
+    color: gold;
+}
+
+.iconeBadge {
+    margin-top: 8%;
+    width: 50px;
+    height: auto;
+    color: #CD7F32;
+}
+
+.iconeBadges{
+    margin-top: 8%;
+    width: 50px;
+    height: auto;
+    color: silver
+}
+
+.iconeBad{
+    margin-top: 8%;
+    width: 50px;
+    height: auto;
+    color: #0AB3D5;
+}
+
+h2{
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+
+}
+
+/* --------
+   Media Queries pour responsivité
+                      --------- */
+
+/* Tablettes */
+@media screen and (max-width: 768px) {
+    #haut {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #AjoutBadges {
+        width: 100%;
+    }
+
+    #btns {
+        flex-direction: column;
+        gap: 10px;
+        margin-left: 0;
+    }
+
+    .btnModifier,
+    .btnSupprimer {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #BadgeDeBronze {
+        width: 90%;
+    }
+}
+
+/* Mobiles */
+@media screen and (max-width: 480px) {
+    #BadgeDeBronze {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #enteteBadges {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .iconeBadge,
+    .iconeBadges,
+    .iconeBadg,
+    .iconeBad {
+        width: 40px;
+        margin-top: 5%;
+    }
+
+    #descriptionBadge,
+    #descriptionBadge2 {
+        bottom: 10px;
+    }
+}
