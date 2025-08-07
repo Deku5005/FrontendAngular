@@ -1,1 +1,41 @@
-<p>domaines works!</p>
+<div id="container">
+    <h1>Ajouter un domaine</h1>
+    <h3>Configurer les informations d'un nouveau domaine a ajouter</h3>
+    <form action="" id="domain-form">
+        <label for="">Titre du domaine</label><br>
+        <input type="text" placeholder="" required><br>
+        <label for="">Description du domaine</label><br>
+        <input type="text" placeholder="" required>
+
+        <button id="ajout">Ajouter</button>
+    </form>
+</div>
+
+<div id="cartes">
+    
+     <div id="carte">
+         <section>
+             <h5>Santé</h5>
+             <p>Description</p>
+             <button id="modifier"><fa-icon [icon]="faPen"></fa-icon> Modifier</button>
+             <button id="supprimer" class="delete-btn" onclick="deleteRow(this)"><fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
+         </section>
+    </div>
+    <div id="carte">
+        <section>
+            <h5>Santé</h5>
+            <p>Description</p>
+            <button id="modifier"><fa-icon [icon]="faPen"></fa-icon> Modifier</button>
+            <button id="supprimer" class="delete-btn" onclick="deleteRow(this)"><fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
+        </section>
+    </div>
+    <div id="carte">
+        <section>
+            <h5>Santé</h5>
+            <p>Description</p>
+            <button id="modifier"><fa-icon [icon]="faPen"></fa-icon> Modifier</button>
+            <button id="supprimer" class="delete-btn" onclick="deleteRow(this)"><fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
+        </section>
+    </div>
+
+</div>
