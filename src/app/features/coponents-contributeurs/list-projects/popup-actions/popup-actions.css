@@ -1,4 +1,4 @@
-.modal-overlay {
+.popup-actions {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.modal {
+.modal-actions {
   background: white;
   padding: 25px 30px;
   width: 400px;
@@ -36,12 +36,17 @@
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.modal-title {
-  text-align: center;
-  font-size: 20px;
-  margin-bottom: 10px;
+.viewcomment-button, .addcomment-button {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 6px 10px;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
 }
 
-.divider {
-  margin: 10px 0 20px 0;
+.popup-actions button:hover {
+  background-color: #f2f2f2;
 }
