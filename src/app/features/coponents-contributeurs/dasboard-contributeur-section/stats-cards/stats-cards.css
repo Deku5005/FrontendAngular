@@ -1,0 +1,41 @@
+.stats-cards {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  flex: 1;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card.violet {
+  background-color: #3c00ff;
+  color: white;
+}
+
+.card .icon {
+  font-size: 24px;
+}
+
+.card-content .number {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-content .label {
+  font-size: 14px;
+  margin: 2px 0;
+}
+
+.card-content .note {
+  font-size: 12px;
+  opacity: 0.9;
+}

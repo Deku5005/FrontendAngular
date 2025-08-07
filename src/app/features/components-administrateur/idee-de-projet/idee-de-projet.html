@@ -1,0 +1,27 @@
+<app-sidebar />
+<app-header />
+<div class="container">
+  <h1>Idee de Projets</h1>
+  <table class="data-table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Titre</th>
+      <th>Description</th>
+      <th>Contributeurs</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{ item.id }}</td>
+      <td>{{ item.titre }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.contributeurs }}</td>
+      <td>
+        <button class="delete-btn" (click)="deleteRow(item.id)">Supprimer</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

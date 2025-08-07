@@ -1,0 +1,44 @@
+<div class="container">
+  <button class="btn-retour">
+    <fa-icon [icon]="faArrowLeft"></fa-icon> Retour
+  </button>
+
+  <h2 class="title">La liste des Projets</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>N°</th>
+        <th>Titre</th>
+        <th>Statut</th>
+        <th>Coin</th>
+        <th>Débloqué</th>
+        <th>Voir</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projet of projets; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ projet.titre }}</td>
+        <td>{{ projet.statut }}</td>
+        <td>{{ projet.coin }}</td>
+        <td>{{ projet.debloque }}</td>
+        <td class="actions">
+          <button (click)="openProjectDetails(projet)"><fa-icon [icon]="faEye"></fa-icon></button>
+          <button><fa-icon [icon]="faLockOpen"></fa-icon></button>
+          <button><fa-icon [icon]="faEllipsisV"></fa-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <app-popup-eye
+    [project]="selectedProject"
+    [showModal]="showModal"
+    (closeModal)="closeProjectDetails()"
+    (saveProject)="onSaveProject()"
+    (joinProject)="onJoinProject()">
+  </app-popup-eye>
+
+</div>

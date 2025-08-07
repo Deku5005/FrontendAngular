@@ -1,0 +1,81 @@
+.recent-projects h3 {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.projects {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background-color: white;
+  border-radius: 15px;
+  padding: 1rem;
+  width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.project-header .icon {
+  font-size: 20px;
+  background-color: #eee;
+  padding: 8px;
+  border-radius: 50%;
+  color: #3c00ff;
+}
+
+.project-header h4 {
+  flex: 1;
+  margin: 0 1rem;
+  font-size: 16px;
+}
+
+.project-header .more-options {
+  color: #888;
+}
+
+.project-card p {
+  font-size: 13px;
+  color: #444;
+  margin: 0.5rem 0;
+}
+
+.progress-bar {
+  background-color: #ddd;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-bar .progress {
+  background-color: #8e2de2;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 12px;
+  color: #555;
+}
+
+.see-all {
+  text-align: right;
+  margin-top: 1rem;
+}
+
+.see-all a {
+  color: #8e2de2;
+  font-size: 13px;
+  text-decoration: none;
+}
