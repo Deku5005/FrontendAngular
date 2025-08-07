@@ -1,73 +1,13 @@
-<!-- src/app/list-projects/project-modal/project-modal.component.html -->
-<div class="modal" *ngIf="showModal" (click)="onClose()">
-  <div class="modal-content" (click)="preventClose($event)">
-    <div class="modal-header">
-      <h3 class="modal-title">{{ project?.titre }}</h3>
-      <p class="modal-subtitle">
-        Niveau : {{ project?.niveau }} • 
-        Crée le {{ project?.dateCreation }}
-      </p>
-      <button class="close-modal" (click)="onClose()">
-        <fa-icon [icon]="faTimes"></fa-icon>
-      </button>
-    </div>
-    
-    <div class="modal-body">
-      <div class="modal-section">
-        <h4 class="modal-section-title">
-          <fa-icon [icon]="faInfoCircle"></fa-icon>
-          Description
-        </h4>
-        <div class="modal-section-content">
-          {{ project?.description }}
-        </div>
-      </div>
-      
-      <div class="modal-section">
-        <h4 class="modal-section-title">
-          <fa-icon [icon]="faTasks"></fa-icon>
-          Détails du projet
-        </h4>
-        <div class="modal-section-content">
-          <p><strong>Technologies :</strong> {{ project?.technologies?.join(', ') }}</p>
-          <p><strong>Durée estimée :</strong> {{ project?.duree }}</p>
-          <p><strong>Budget :</strong> {{ project?.coin }} Coins</p>
-          <p><strong>Contributeurs nécessaires :</strong> {{ project?.contributeurs }}</p>
-        </div>
-      </div>
-      
-      <div class="modal-section">
-        <h4 class="modal-section-title">
-          <fa-icon [icon]="faTags"></fa-icon>
-          Compétences requises
-        </h4>
-        <div class="badges">
-          <span class="badge" *ngFor="let competence of project?.competences">
-            {{ competence }}
-          </span>
-        </div>
-      </div>
-      
-      <div class="modal-section">
-        <h4 class="modal-section-title">
-          <fa-icon [icon]="faUserFriends"></fa-icon>
-          Équipe actuelle
-        </h4>
-        <div class="modal-section-content">
-          <p *ngFor="let membre of project?.equipe">
-            • {{ membre.role }} ({{ membre.actuel }}/{{ membre.requis }})
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="modal-footer">
-      <button class="modal-btn btn-secondary" (click)="onSave()">
-        <fa-icon [icon]="faBookmark"></fa-icon> Enregistrer
-      </button>
-      <button class="modal-btn btn-primary" (click)="onJoin()">
-        <fa-icon [icon]="faHandshake"></fa-icon> Rejoindre le projet
-      </button>
-    </div>
+<div class="modal-overlay">
+  <div class="modal">
+    <button class="close-button" (click)="fermerPopup()">X</button>
+
+    <h2 class="modal-title">{{ titreProjet }}</h2>
+    <hr class="divider" />
+
+    <p><strong>Niveau :</strong> {{ niveau }}</p>
+
+    <p><strong>Description:</strong></p>
+    <p>{{ description }}</p>
   </div>
 </div>
