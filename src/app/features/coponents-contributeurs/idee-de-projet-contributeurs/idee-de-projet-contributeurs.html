@@ -1,1 +1,49 @@
-<p>idee-de-projet-contributeurs works!</p>
+<div class="container">
+  <div class="header">
+    <h2>Idée de Projets</h2>
+    <div class="actions">
+      <input type="text" placeholder="Rechercher projets, membres, fonctionnalités..." />
+      <button>+ Ajouter</button>
+    </div>
+  </div>
+
+  <div class="project-list">
+    <div class="project-row" style="position: relative;" *ngFor="let projet of projets; let i = index">
+      <div>{{ i + 1 }}</div>
+      <div class="project-name">{{ projet.nom }}</div>
+      <div class="icon">
+        <button class="btn" (click)="ouvrirDetail(projet)">
+          <fa-icon [icon]="faEye"></fa-icon>
+        </button>
+        <div>
+          <button class="btn" (click)="ouvrirMenu(projet)">
+            <fa-icon [icon]="faEllipsisV"></fa-icon>
+          </button>
+          <!-- Popup menu (incorrectement placé) -->
+          <app-pup-popmenu class="pop-menu-positionne"
+                           *ngIf="selectedProjet === projet"
+                           (voirCommentaires)="voirCommentaires(projet)"
+                           (faireDemande)="faireDemande(projet)"
+                           (ajouterCommentaire)="ajouterCommentaire(projet)"
+                           (fermer)="fermerMenu()"
+          ></app-pup-popmenu>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Détail du projet affiché en dehors du *ngFor -->
+  <!-- Popup modale -->
+  <div class="modal-overlay" *ngIf="projetSelectionne" (click)="fermerDetail()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <app-detail-idee-projet [projet]="projetSelectionne"></app-detail-idee-projet>
+      <button class="close-btn" (click)="fermerDetail()">Fermer</button>
+    </div>
+  </div>
+
+</div>
+
+
+
