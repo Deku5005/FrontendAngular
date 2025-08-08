@@ -1,36 +1,29 @@
-<!-- Projets récents -->
-<div class="recent-projects">
-  <h3><fa-icon [icon]="faFolderOpen"></fa-icon> Projets récents</h3>
+<div class="recent-projects-wrapper">
 
-  <div class="projects">
-    <div class="project-card">
-      <div class="project-header">
-        <div class="icon"><fa-icon [icon]="faUtensils"></fa-icon></div>
-        <h4>Appli Recettes</h4>
-        <i class="fas fa-ellipsis-v more-options"></i>
-      </div>
-      <p>Application mobile de partage de recettes avec IA</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 45%"></div>
-      </div>
-      <span class="progress-text">45% complété</span>
-    </div>
+  <h2 class="section-title">
+    <fa-icon [icon]="faFolderOpen"></fa-icon> Projets récents
+  </h2>
 
-    <div class="project-card">
-      <div class="project-header">
-        <div class="icon"><fa-icon [icon]="faTasks"></fa-icon></div>
-        <h4>TaskFlow</h4>
-        <i class="fas fa-ellipsis-v more-options"></i>
+  <div class="project-list-container" *ngIf="visibleProjects.length > 0">
+    <div class="project-card" *ngFor="let project of visibleProjects">
+      <div class="project-icon">
+        <fa-icon [icon]="project.icon"></fa-icon>
       </div>
-      <p>Plateforme de gestion de tâches en temps réel</p>
-      <div class="progress-bar">
-        <div class="progress" style="width: 75%"></div>
+
+      <div class="project-info">
+        <h3>{{ project.name }}</h3>
+        <p>{{ project.description }}</p>
+        <div class="progress-bar">
+          <div class="progress" [style.width.%]="project.completion"></div>
+        </div>
+        <span>{{ project.completion }}% complété</span>
       </div>
-      <span class="progress-text">75% complété</span>
     </div>
   </div>
 
-  <div class="see-all">
-    <a href="#">Voir tout <fa-icon [icon]="faArrowRight"></fa-icon></a>
+  <div class="view-more-container" *ngIf="visibleProjects.length > 2">
+    <button class="view-more-btn" (click)="loadMore()">Voir tout ➔</button>
   </div>
+
 </div>
+

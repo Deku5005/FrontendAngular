@@ -1,5 +1,21 @@
 .notification-text {
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   font-size: 14px;
-  color: #444;
+  color: #000000;
+  display: flex;
+  justify-content: center;
 }
+
+
+
+.dashboard {
+  padding: 1rem;
+  background: #f7f7f9;
+  border-radius: 8px;
+}
+
+.parent-container {
+  display: flex;
+  justify-content: center; /* centre horizontalement */
+}
+
