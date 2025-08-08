@@ -1,81 +1,79 @@
-.recent-projects h3 {
-  font-size: 18px;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.recent-projects-wrapper {
+  max-width: 960px;
+  margin: 0 auto; /* centre le composant dans la page */
+  padding: 20px;
 }
 
-.projects {
+.section-title {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.project-list-container {
   display: flex;
-  gap: 2rem;
+  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center; /* centre les cartes */
 }
 
 .project-card {
-  background-color: white;
-  border-radius: 15px;
-  padding: 1rem;
-  width: 280px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: white;
+  width: 300px;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.project-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.project-icon {
+  font-size: 28px;
+  color: #2112EB;
 }
 
-.project-header .icon {
-  font-size: 20px;
-  background-color: #eee;
-  padding: 8px;
-  border-radius: 50%;
-  color: #3c00ff;
+.project-info h3 {
+  margin: 8px 0 4px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.project-header h4 {
-  flex: 1;
-  margin: 0 1rem;
-  font-size: 16px;
-}
-
-.project-header .more-options {
-  color: #888;
-}
-
-.project-card p {
-  font-size: 13px;
-  color: #444;
-  margin: 0.5rem 0;
+.project-info p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: #333;
 }
 
 .progress-bar {
-  background-color: #ddd;
-  border-radius: 10px;
+  width: 100%;
   height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
   overflow: hidden;
-  margin: 0.5rem 0;
+  margin: 8px 0;
 }
 
-.progress-bar .progress {
-  background-color: #8e2de2;
+.progress {
   height: 100%;
-  transition: width 0.3s ease;
+  background-color: #2112EB;
 }
 
-.progress-text {
-  font-size: 12px;
-  color: #555;
+.view-more-container {
+  display: flex;
+  justify-content: flex-end; /* bouton aligné à droite */
+  margin-top: 20px;
 }
 
-.see-all {
-  text-align: right;
-  margin-top: 1rem;
+.view-more-btn {
+  background: transparent;
+  color: #2112EB;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 12px;
+  transition: color 0.2s ease;
 }
 
-.see-all a {
-  color: #8e2de2;
-  font-size: 13px;
-  text-decoration: none;
+.view-more-btn:hover {
+  color: #000;
 }
