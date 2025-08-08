@@ -24,7 +24,7 @@ export class InscriptionComponent {
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    const apiUrl = 'http://localhost:8080/api/contributeurs/inscription'; // Remplace par ton API
+    const apiUrl = 'http://localhost:8080/api/contributeurs/inscription';
 
     this.http.post(apiUrl, this.formData).subscribe({
       next: (res) => {
