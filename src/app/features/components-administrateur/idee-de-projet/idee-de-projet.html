@@ -8,6 +8,8 @@
       <th>ID</th>
       <th>Titre</th>
       <th>Description</th>
+      <th>dateCreation</th>
+      <th>nivaux</th>
       <th>Contributeurs</th>
       <th>Action</th>
     </tr>
@@ -17,6 +19,8 @@
       <td>{{ item.id }}</td>
       <td>{{ item.titre }}</td>
       <td>{{ item.description }}</td>
+      <td>{{ item.dateCreation }}</td>
+      <td>{{ item.nivaux }}</td>
       <td>{{ item.contributeurs }}</td>
       <td>
         <button class="delete-btn" (click)="deleteRow(item.id)">Supprimer</button>

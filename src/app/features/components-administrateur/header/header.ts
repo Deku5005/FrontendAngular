@@ -14,4 +14,5 @@ import {RouterOutlet} from '@angular/router';
 export class Header {
 
   protected readonly faUserCircle = faUserCircle;
+
 }

@@ -11,16 +11,13 @@ import {Header} from "../header/header";
 })
 export class IdeeDeProjet {
   data = [
-    {id: 1, titre: "Projet bbb", description: "Description A", contributeurs: "Mamoutou, Sangaré"},
-    {id: 2, titre: "Projet B", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 3, titre: "Projet C", description: "Description B", contributeurs: "Sanata, Keita"},
-    {id: 4, titre: "Projet D", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 5, titre: "Projet E", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 6, titre: "Projet F", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 7, titre: "Projet G", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 8, titre: "Projet H", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 9, titre: "Projet H", description: "Description B", contributeurs: "Oumar, Dolo"},
-    {id: 10, titre: "Projet H", description: "Description B", contributeurs: "Oumar, Dolo"}
+    {id: 1, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"},
+    {id: 2, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"},
+    {id: 3, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"},
+    {id: 4, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"},
+    {id: 5, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"},
+    {id: 6, titre: "Projet bbb", description: "Description A",dateCreation: "02/05/2025",nivaux:"Intermedaire", contributeurs: "Mamoutou, Sangaré"}
+
   ];
   deleteRow(id: number): void {
     if (confirm('Êtes-vous sûr de vouloir supprimer cette ligne ?')) {

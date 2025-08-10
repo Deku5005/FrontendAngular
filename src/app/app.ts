@@ -12,7 +12,7 @@ import {InscriptionComponent} from './features/login/inscription-component/inscr
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DasboardAdmin, RouterLink, Sidebar, SidebarContributeurs, MesProjetContributeurs, ConnexionComponent, InscriptionComponent],
+  imports: [RouterOutlet, DasboardAdmin, RouterLink, Sidebar, SidebarContributeurs, MesProjetContributeurs, ConnexionComponent, InscriptionComponent,],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
