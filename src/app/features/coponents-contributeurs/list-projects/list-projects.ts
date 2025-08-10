@@ -7,11 +7,13 @@ import { Projet } from '../../../models/projet';
 import { PopupActions } from './popup-actions/popup-actions';
 import { PopupComments } from './popup-comments/popup-comments';
 import { PopupAddComment } from './popup-add-comment/popup-add-comment';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
+import { PopupUnlock } from './popup-unlock/popup-unlock';
+import { faUnlock } from '@fortawesome/free-solid-svg-icons/faUnlock';
 
 @Component({
   selector: 'app-list-projects',
-  imports: [CommonModule, FontAwesomeModule, PopupEye, PopupActions, PopupComments, PopupAddComment, RouterLink],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, PopupUnlock, PopupComments,PopupAddComment, PopupEye, PopupActions],
   templateUrl: './list-projects.html',
   styleUrl: './list-projects.css'
 })
@@ -19,7 +21,7 @@ export class ListProjects {
   
   protected readonly faEye = faEye;
   protected readonly faLockOpen = faLockOpen;
-  protected readonly faLock = faLock;
+  protected readonly faUnlock = faUnlock;
   protected readonly faEllipsisV = faEllipsisV;
   protected readonly faArrowLeft = faArrowLeft;
   chemin: string = '/dashboardContributeur';
@@ -130,5 +132,29 @@ export class ListProjects {
 
     this.closeAddCommentPopup();
   }
+
+
+  showUnlockPopup = false;
+  userCoins = 2000; // Points actuels du joueur
+  
+  onUnlockClick(projet: any) {
+    this.selectedProject = projet;
+    this.showUnlockPopup = true;
+  }
+
+  closeUnlockPopup() {
+    this.showUnlockPopup = false;
+    this.selectedProject = null;
+  }
+
+  onProjectUnlocked() {
+    if (this.selectedProject) {
+      this.selectedProject.debloque = true;
+      // Optionnel : mise à jour des points
+      this.userCoins -= this.selectedProject.coin;
+    }
+  }
+
+
 
 }

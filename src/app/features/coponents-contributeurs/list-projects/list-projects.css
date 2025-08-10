@@ -50,7 +50,9 @@ th {
 
 td .icon-lock {
   color: #4a3aff;
+  font-size: 18px;
 }
+
 
 td .icon-eye {
   color: #333;
@@ -60,5 +62,15 @@ td .icon-eye {
 
 td .icon-menu {
   color: #333;
+  cursor: pointer;
+}
+
+.icon-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* espace entre les icônes */
+}
+
+.icon-lock {
   cursor: pointer;
 }
