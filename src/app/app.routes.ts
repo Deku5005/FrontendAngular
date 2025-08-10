@@ -14,9 +14,6 @@ import { ListProjects } from './features/coponents-contributeurs/list-projects/l
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
 import {
-  IdeeDeProjetContributeurs
-} from './features/coponents-contributeurs/idee-de-projet-contributeurs/idee-de-projet-contributeurs';
-import {
   MesProjetContributeurs
 } from './features/coponents-contributeurs/mes-projet-contributeurs/mes-projet-contributeurs';
 import {
@@ -103,7 +100,7 @@ export const routes: Routes = [
     children: [
       {
         path: "",
-        component: IdeeDeProjetContributeurs // affiché par défaut quand on navigue vers /ideeProjetContributeur
+        component: MesProjetContributeurs // affiché par défaut quand on navigue vers /ideeProjetContributeur
       }
     ]
 },
