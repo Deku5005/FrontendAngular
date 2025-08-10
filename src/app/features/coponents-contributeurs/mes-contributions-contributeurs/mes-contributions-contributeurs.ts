@@ -25,6 +25,7 @@ export class MesContributionsContributeurs {
   constructor(private router: Router, private location: Location) {} // Injectez Location abd Router
   activeTab: string = 'contribution';
 
+
 contributions: Contribution[] = [
   {
     icon: 'fa-bell',
@@ -64,14 +65,11 @@ contributions: Contribution[] = [
   }
 ];
 
-  switchTab(tab: string): void {
+   switchTab(tab: string): void {
     this.activeTab = tab;
-  }
-
-  goBack(): void {
-    //Logique de retour
-    this.location.back(); // Retour à la page précédente
-    console.log('Navigation retour');
+    if (tab === 'features') {
+      this.router.navigate(['/fonctionnalites']);
+    }
   }
 
 addNew(): void {
@@ -84,15 +82,16 @@ addNew(): void {
 openContributionDetails(contribution: Contribution): void {
   this.router.navigate(['/contribution-details'], {
     state: {
-      contributionData: {
-        title: contribution.title,
-        date: contribution.date,
-        description: contribution.description,
-        status: contribution.status,
-        statusText: contribution.statusText,
-        auteur: contribution.auteur,
-        icon: contribution.icon
-      }
+      contributionData: contribution
+      // {
+      //   title: contribution.title,
+      //   date: contribution.date,
+      //   description: contribution.description,
+      //   status: contribution.status,
+      //   statusText: contribution.statusText,
+      //   auteur: contribution.auteur,
+      //   icon: contribution.icon
+      // }
     }
   });
 }

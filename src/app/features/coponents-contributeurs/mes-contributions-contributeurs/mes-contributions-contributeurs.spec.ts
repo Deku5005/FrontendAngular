@@ -1,6 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MesContributionsContributeurs } from './mes-contributions-contributeurs';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
+
+@Component({
+   selector: 'app-fonctionnalites',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  template: '<div>Fonctionnalites works!</div>'
+})
+
+export class FonctionnalitesComponent {
+}
 
 describe('MesContributionsContributeurs', () => {
   let component: MesContributionsContributeurs;

@@ -1,186 +1,78 @@
 <div class="modal">
   <div class="modal-header">
     <div class="header-content">
-      <div class="icon-circle" style="background-color: #d1fae5;">
-        <i class="fa fa-lock"></i>
-      </div>
-      <div>
-        <h1>AUTHENTIFICATION</h1>
-        <div class="status-badge approved">
-          <i class="fa fa-check-circle"></i>
-          Approuvée
-        </div>
-      </div>
-    </div>
-    <button class="close-btn">
-      <i class="fa fa-times"></i>
-    </button>
-  </div>
-
-  <div class="modal-body">
-    <div class="info-grid">
-      <div class="info-item">
-        <i class="fa fa-calendar"></i>
-        <span>Date : 15 Juil 2023</span>
-      </div>
-      <div class="info-item">
-        <i class="fa fa-user"></i>
-        <span>Auteur : Djeneba Haïdara</span>
-      </div>
-    </div>
-
-    <div class="description-section">
-      <h2><i class="fa fa-align-left"></i> Description technique</h2>
-      <p>Mise en place d'un système d'authentification sécurisé avec :</p>
-      <ul class="tech-list">
-        <li><i class="fa fa-check"></i> Chiffrement AES-256</li>
-        <li><i class="fa fa-check"></i> Tokens JWT avec expiration</li>
-        <li><i class="fa fa-check"></i> Protection contre les attaques CSRF</li>
-      </ul>
-    </div>
-
-    <div class="deployment-info">
-      <h3><i class="fa fa-rocket"></i> Déploiement</h3>
-      <p>Implémenté en production depuis le 20/07/2023. Taux de réussite : 99.98%</p>
-    </div>
-  </div>
-</div>
-
-
-  <div class="modal">
-  <div class="modal-header">
-    <div class="header-content">
-      <div class="icon-circle">
+      <div class="icon-circle" [style.backgroundColor]="getStatusColor(contributionData?.status)">
         <i class="fa {{contributionData?.icon}}"></i>
       </div>
-      <h1>{{ contributionData?.title || 'Détails de la contribution' }}</h1>
-    </div>
-    <button class="close-btn" (click)="closeModal()">X</button>
-  </div>
-
-  <div class="modal-body">
-    <div class="info-row">
-      <p><i class="fa fa-calendar"></i> {{ contributionData?.date }}</p>
-      <p class="status {{contributionData?.status}}">{{ contributionData?.statusText }}</p>
-    </div>
-
-    <p class="auteur"><i class="fa fa-user"></i> {{ contributionData?.auteur }}</p>
-
-    <div class="description">
-      <h3>Description</h3>
-      <p>{{ contributionData?.description }}</p>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal">
-  <!-- En-tête -->
-  <div class="modal-header">
-    <div class="header-content">
-      <div class="icon-circle" style="background-color: #e3d6ff;">
-        <i class="fa fa-bell"></i>
-      </div>
       <div>
-        <h1>API NOTIFICATION</h1>
-        <div class="status-badge rejected">
-          <i class="fa fa-times-circle"></i>
-          Rejetée
+        <h1>{{ contributionData?.title }}</h1>
+        <div class="status-badge {{contributionData?.status}}">
+          <i class="fa {{getStatusIcon(contributionData?.status)}}"></i>
+          {{ contributionData?.statusText }}
         </div>
       </div>
     </div>
-    <button class="close-btn">
+    <button class="close-btn" (click)="closeModal()">
       <i class="fa fa-times"></i>
     </button>
   </div>
 
-  <!-- Corps -->
   <div class="modal-body">
     <div class="info-grid">
       <div class="info-item">
         <i class="fa fa-calendar"></i>
-        <span>Date : 15 Juil 2023</span>
+        <span>Date : {{ contributionData?.date }}</span>
       </div>
       <div class="info-item">
         <i class="fa fa-user"></i>
-        <span>Auteur : Oumar DOLO</span>
+        <span>Auteur : {{ contributionData?.auteur }}</span>
       </div>
     </div>
 
     <div class="description-section">
       <h2><i class="fa fa-align-left"></i> Description</h2>
-      <p>Intégration de l'authentification OAUTH avec GitHub pour synchroniser les issues et pull requests.</p>
+      <p>{{ contributionData?.description }}</p>
+
+       <div *ngIf="contributionData && contributionData.title.includes('AUTHENTIFICATION')">
+        <p>Technologies utilisées :</p>
+        <ul class="tech-list">
+          <li><i class="fa fa-check"></i> Chiffrement AES-256</li>
+          <li><i class="fa fa-check"></i> Tokens JWT</li>
+          <li><i class="fa fa-check"></i> Protection CSRF</li>
+        </ul>
+      </div>
+
+ <div *ngIf="contributionData && contributionData.title.includes('RBAC')">
+        <p>Rôles implémentés :</p>
+        <div class="role-table">
+          <div class="role-header">
+            <span>Rôle</span>
+            <span>Permissions</span>
+          </div>
+          <div class="role-row">
+            <span>Admin</span>
+            <span>CRUD complet</span>
+          </div>
+          <div class="role-row">
+            <span>Éditeur</span>
+            <span>CRU (sans suppression)</span>
+          </div>
+          <div class="role-row">
+            <span>Lecteur</span>
+            <span>Lecture seule</span>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="additional-info">
+    <div class="additional-info" *ngIf="contributionData?.status === 'rejected'">
       <h3><i class="fa fa-info-circle"></i> Commentaires</h3>
-      <p>Cette contribution a été rejetée car l'implémentation actuelle ne respecte pas les normes de sécurité requises. Une révision avec chiffrement AES-256 est nécessaire.</p>
-    </div>
-  </div>
-</div>
-
-
-<div class="modal">
-  <div class="modal-header">
-    <div class="header-content">
-      <div class="icon-circle" style="background-color: #fef3c7;">
-        <i class="fa fa-user-shield"></i>
-      </div>
-      <div>
-        <h1>AUTORISATION RBAC</h1>
-        <div class="status-badge pending">
-          <i class="fa fa-clock"></i>
-          En revue
-        </div>
-      </div>
-    </div>
-    <button class="close-btn">
-      <i class="fa fa-times"></i>
-    </button>
-  </div>
-
-  <div class="modal-body">
-    <div class="info-grid">
-      <div class="info-item">
-        <i class="fa fa-calendar"></i>
-        <span>Date : 20 Août 2023</span>
-      </div>
-      <div class="info-item">
-        <i class="fa fa-user"></i>
-        <span>Auteur : Hamidou Dijré</span>
-      </div>
-      <div class="info-item">
-        <i class="fa fa-code-branch"></i>
-        <span>Branche : feature/rbac-implementation</span>
-      </div>
+      <p>Cette contribution nécessite des modifications pour respecter nos standards de sécurité.</p>
     </div>
 
-    <div class="description-section">
-      <h2><i class="fa fa-align-left"></i> Fonctionnalités</h2>
-      <p>Implémentation du contrôle d'accès basé sur les rôles avec :</p>
-      <div class="role-table">
-        <div class="role-header">
-          <span>Rôle</span>
-          <span>Permissions</span>
-        </div>
-        <div class="role-row">
-          <span>Admin</span>
-          <span>CRUD complet</span>
-        </div>
-        <div class="role-row">
-          <span>Éditeur</span>
-          <span>CRU (pas de suppression)</span>
-        </div>
-        <div class="role-row">
-          <span>Lecteur</span>
-          <span>Lecture seule</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="review-notes">
-      <h3><i class="fa fa-clipboard-check"></i> Notes de relecture</h3>
-      <p>En attente de validation par l'équipe sécurité. Tests unitaires à 92% de couverture.</p>
+    <div class="review-notes" *ngIf="contributionData?.status === 'pending'">
+      <h3><i class="fa fa-clipboard-check"></i> En revue</h3>
+      <p>En cours d'évaluation par l'équipe technique.</p>
     </div>
   </div>
 </div>
