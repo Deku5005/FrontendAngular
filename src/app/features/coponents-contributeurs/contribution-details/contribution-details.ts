@@ -1,22 +1,19 @@
-import { Contribution } from './../contribution/contribution';
 import { Component } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
+import { Contribution } from '../mes-contributions-contributeurs/mes-contributions-contributeurs';
 
 @Component({
-  selector: 'app-contribution-modal',
+  selector: 'app-contribution-details',
   standalone: true,
   templateUrl: './contribution-details.html',
   styleUrls: ['./contribution-details.css'],
-  imports: [CommonModule, DatePipe] // Import CommonModule for Angular directives and DatePipe for date formatting
+  imports: [CommonModule, DatePipe]
 })
-
-export class ContributionModalComponent {
-  contributionData: any;
-  codeSnippet: string = '';
+export class ContributionDetailsComponent {
+  contributionData: Contribution | null = null;
 
   constructor(private router: Router) {
-    // Récupération des données passées en navigation
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.contributionData = navigation.extras.state['contributionData'];
@@ -24,6 +21,6 @@ export class ContributionModalComponent {
   }
 
   closeModal() {
-    this.router.navigate(['/contributions']); // Retour à la liste
+    this.router.navigate(['/mes-contributions-contributeurs']);
   }
 }

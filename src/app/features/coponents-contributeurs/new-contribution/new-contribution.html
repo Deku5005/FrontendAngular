@@ -7,24 +7,34 @@
 
   <form class="form" (ngSubmit)="onSubmit()">
     <label for="fonctionnalite">Choisir une fonctionnalité</label>
-    <select id="fonctionnalite" required>
-      <option value="">Sélectionnez une fonctionnalité</option>
-      <option value="feature1">Fonctionnalité 1</option>
-      <option value="feature2">Fonctionnalité 2</option>
+    <select [(ngModel)]="contribution.fonctionnalite" name="fonctionnalite">
+      <!-- options -->
     </select>
 
-    <label for="contenu">Contenu</label>
-    <textarea id="contenu" rows="6" required></textarea>
-
-    <div class="buttons">
-      <button type="button" class="upload-btn" (click)="onFileUpload()">
-        Téléverser un fichier
-      </button>
-
-      <div class="right-buttons">
-        <button type="reset" class="cancel-btn">Annuler</button>
-        <button type="submit" class="submit-btn">Envoyer</button>
+    <!-- Zone de téléversement séparée -->
+    <div class="file-upload-section">
+      <input #fileInput type="file" (change)="onFileSelected($event)" style="display: none">
+<button type="button" class="upload-btn" (click)="fileInput.click()">
+  Sélectionner un fichier
+</button>
+      <!-- Affichage du nom du fichier sélectionné et bouton de téléversement -->
+      <div *ngIf="contribution.fichier">
+        <p>Fichier sélectionné: {{ contribution.fichier?.name }}</p>
+        <button type="button" class="upload-btn" (click)="onFileUpload()" [disabled]="isUploading">
+          <span *ngIf="!isUploading">Téléverser</span>
+          <span *ngIf="isUploading">Téléversement en cours...</span>
+        </button>
+<!-- Affichage de la progression du téléversement -->
+        <div *ngIf="isUploading">
+          <progress [value]="uploadProgress" max="100"></progress>
+          {{ uploadProgress }}%
+        </div>
       </div>
+    </div>
+<!-- Champ de saisie pour le titre -->
+    <div class="buttons">
+      <button type="button" class="cancel-btn" (click)="goBack()">Annuler</button>
+      <button type="submit" class="submit-btn">Envoyer la contribution</button>
     </div>
   </form>
 </div>
