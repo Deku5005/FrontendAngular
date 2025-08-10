@@ -1,43 +1,48 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
-import {RouterOutlet} from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faPlus ,faEdit, faTrash, faMedal} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { faPlus, faMedal, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Badge, BadgesService } from '../../../services/badges.service';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
+
+import { NgClass } from '@angular/common';
 
 @Component({
-  selector: 'app-parametrer-les-badges',
-  imports: [RouterOutlet, FontAwesomeModule],
+  selector: 'app-badges',
   templateUrl: './parametrer-les-badges.html',
-  styleUrl: './parametrer-les-badges.css'
+  styleUrls: ['./parametrer-les-badges.css'],
+  standalone: true,
+  imports: [
+    CommonModule,
+    FaIconComponent,
+    NgClass
+  ],
 })
-export class ParametrerLesBadges implements AfterViewInit {
+export class ParametrerLesBadges implements OnInit {
+
+  badges: Badge[] = [];
 
   faPlus = faPlus;
+  faMedal = faMedal;
   faEdit = faEdit;
   faTrash = faTrash;
-  faMedal = faMedal; 
 
-  private estActiver = false;
-  
+  constructor(private badgesService: BadgesService) {}
 
-  @ViewChild('btnAjouter') btnAjouterRef!: ElementRef;
-  @ViewChild('Principal') PrincipalRef!: ElementRef;
-
-  ngAfterViewInit():void{
-
-    this.btnAjouterRef.nativeElement.addEventListener('click', ()=> {
-      this.estActiver = !this.estActiver;
-
-      if(this.estActiver){
-        this.PrincipalRef.nativeElement.style.color='';
-        this.PrincipalRef.nativeElement.style.backgroundColor='yellow';
-      }else{
-        this.PrincipalRef.nativeElement.style.color='';
-        this.PrincipalRef.nativeElement.style.backgroundColor='';
-      }
-    })
-
-    
+  ngOnInit(): void {
+    this.loadBadges();
   }
-  
 
+  loadBadges(): void {
+    this.badgesService.getAll().subscribe(data => {
+      this.badges = data;
+    });
+  }
+
+  supprimerBadge(id: number): void {
+    if (confirm('Voulez-vous vraiment supprimer ce badge ?')) {
+      this.badgesService.delete(id).subscribe(() => {
+        this.badges = this.badges.filter(b => b.idBadge !== id);
+      });
+    }
+  }
 }

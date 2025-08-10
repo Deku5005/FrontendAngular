@@ -1,243 +1,41 @@
-<div id="containerPrincipal" #Principal>
-    <div id="haut">
-        <h1>Paramétrer les badges</h1>
-        <button id="AjoutBadges" #btnAjouter><fa-icon [icon]="faPlus"></fa-icon> Ajouter un badge</button>
+<div id="containerPrincipal">
+  <div id="haut">
+    <h1>Paramétrer les badges</h1>
+    <button id="AjoutBadges">
+      <fa-icon [icon]="faPlus"></fa-icon> Ajouter un badge
+    </button>
+  </div>
+
+  <div id="conteneurBadges">
+    <div class="badge-card" *ngFor="let badge of badges">
+      <div id="enteteBadges">
+        <h2>{{ badge.nom }}</h2>
+        <fa-icon [icon]="faMedal"
+                 [ngClass]="{
+                   'iconeBadge': badge.couleur === 'bronze',
+                   'iconeBadges': badge.couleur === 'argent',
+                   'iconeBadg': badge.couleur === 'or',
+                   'iconeBad': badge.couleur === 'diamant'
+                 }">
+        </fa-icon>
+      </div>
+
+      <div id="descriptionBadge">
+        <p>{{ badge.objectif }}</p>
+      </div>
+
+      <div id="descriptionBadge2">
+        <p>{{ badge.description }}</p>
+      </div>
+
+      <div id="btns">
+        <button class="btnModifier">
+          <fa-icon [icon]="faEdit"></fa-icon> Modifier
+        </button>
+        <button class="btnSupprimer" (click)="supprimerBadge(badge.idBadge)">
+          <fa-icon [icon]="faTrash"></fa-icon> Supprimer
+        </button>
+      </div>
     </div>
-
-
-    <!-- Bronze -->
-    <div id="conteneurBadges">
-
-        <div id="BadgeDeBronze" #Badge>
-            <div id="enteteBadges">
-                <h2>Bronze_I</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadge"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>100 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 100 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-        
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Bronze_II</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadge"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>200 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 200 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Bronze_III</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadge"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>300 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 300 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-    </div>
-
-    
-        
-
-
-
-
-
-<!-- Argent -->
-        
-      <div id="conteneurBadges">
-        
-        <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Argent_I</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadges"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>400 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 400 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-        
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Argent_II</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadges"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>500 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 500 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Argent_III</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadges"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>600 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 600 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-<!-- OR -->
-
-    <div id="conteneurBadges">
-        
-        <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Or_I</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadg"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>700 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 700 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-        
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Or_II</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadg"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>800 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 800 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-
-         <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Or_III</h2>
-                <fa-icon [icon]="faMedal" class="iconeBadg"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>900 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 900 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-
-    </div>
-
-
-
-<!-- Expert -->
-
-     <div id="conteneurBadges">
-        
-        <div id="BadgeDeBronze">
-            <div id="enteteBadges">
-                <h2>Diamant</h2>
-                <fa-icon [icon]="faMedal" class="iconeBad"></fa-icon>
-            </div>
-            <div id="descriptionBadge">
-                <p>1000 coins collectés</p>
-            </div>
-            <div id="descriptionBadge2">
-                <p>Pour avoir collecter 1000 coins collectés</p>
-            </div>
-
-            <div id="btns">
-                <button class="btnModifier"> <fa-icon [icon]="faEdit"></fa-icon> Modifier</button>
-                <button class="btnSupprimer"> <fa-icon [icon]="faTrash"></fa-icon> Supprimer</button>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-    
-  
-
-
-
-        
+  </div>
 </div>

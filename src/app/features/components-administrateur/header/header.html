@@ -1,5 +1,4 @@
-<!-- Header -->
-
+<!-- header.html -->
 <header class="header">
   <div class="header-left">
     <button class="menu-toggle">
@@ -12,9 +11,9 @@
       <span>Admin</span>
       <fa-icon [icon]="faUserCircle"></fa-icon>
     </div>
-    <button class="btn btn-logout" id="logout-btn">
+    <a routerLink="/Connexion" class="btn btn-logout" id="logout-btn" (click)="clearSession()">
       <i class="fas fa-sign-out-alt"></i>
       <span>Se déconnecter</span>
-    </button>
+    </a>
   </div>
 </header>
