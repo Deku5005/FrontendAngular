@@ -27,7 +27,7 @@ export class ConnexionComponent {
         if (res.token) {
           localStorage.setItem('token', res.token);
         }
-        // Redirection possible
+        // Redirection 
          this.router.navigate(['/dashboardContributeur']);
       },
       error: (err) => {
