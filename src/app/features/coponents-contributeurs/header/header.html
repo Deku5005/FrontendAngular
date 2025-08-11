@@ -1,5 +1,4 @@
 <!-- Header -->
-
 <header class="header" #header>
   <div class="header-left">
     <button class="menu-toggle">
@@ -8,7 +7,7 @@
   </div>
   <div class="header-right">
     <button class="notif-btn" aria-label="Notifications" #icon>
-      <fa-icon [icon]="faBell"></fa-icon>
+      <a routerLink="/Notification"><fa-icon [icon]="faBell"></fa-icon></a>
       <span class="notif-badge">3</span>
     </button>
 
