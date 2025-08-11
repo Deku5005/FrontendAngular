@@ -1,4 +1,6 @@
+import { NewContribution } from './features/coponents-contributeurs/new-contribution/new-contribution';
 import { Routes } from '@angular/router';
+
 //import {IdeesDeProjets} from './features/components-administrateur/idees-de-projets/idees-de-projets';
 import {DasboardAdmin} from './features/components-administrateur/dasboard-admin/dasboard-admin';
 import {DashboardSection} from './features/components-administrateur/dashboard-section/dashboard-section';
@@ -13,18 +15,19 @@ import { DasboardContributeurSection } from './features/coponents-contributeurs/
 import { ListProjects } from './features/coponents-contributeurs/list-projects/list-projects';
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
+import { MesContributionsContributeurs } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 
 import {
   MesProjetContributeurs
 } from './features/coponents-contributeurs/mes-projet-contributeurs/mes-projet-contributeurs';
-import {
-  MesContributionsContributeurs
-} from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 import {ConnexionComponent} from './features/login/connexion-component/connexion-component';
 import {InscriptionComponent} from './features/login/inscription-component/inscription-component';
+import { ContributionDetailsComponent } from './features/coponents-contributeurs/contribution-details/contribution-details';
 import { IdeeDeProjetContributeursComponent } from './features/coponents-contributeurs/idee-de-projet-contributeurs/idee-de-projet-contributeurs';
 
 export const routes: Routes = [
+
+   { path: 'new-contribution', component: NewContribution },
 
   {
     path: "ideeProjet",
@@ -41,6 +44,10 @@ export const routes: Routes = [
       }
     ]
   },
+
+  { path: 'contribution-details', component: ContributionDetailsComponent },
+  { path: '', redirectTo: '/MesContributionsContributeurs', pathMatch: 'full' },
+
   {
     path: "ParametrerBadge", component: DasboardAdmin, children: [
 
@@ -117,15 +124,24 @@ export const routes: Routes = [
   ]
 },
 {
-  path:"ContriContri",
+  path:"MesContributionsContributeurs",
   component: DashboardContributeur,
   children:[
     {
-      path:'',
-      component: MesContributionsContributeurs, // affiché par défaut quand on navigue vers /ContriContri
-    }
+     path: '',
+     component: MesContributionsContributeurs
+    },
+
+
   ]
 },
+
+{ path: 'mes-contributions-contributeurs',
+  component: MesContributionsContributeurs },
+
+    { path: 'contribution',
+      component: MesContributionsContributeurs },
+
 {
   path:"Recompenses",
   component: DashboardContributeur,
@@ -136,10 +152,12 @@ export const routes: Routes = [
     }
   ]
 },
+
 {
     path: "projects",
-    component: ListProjects
+    component: ListProjects,
 },
+
 {
     path:"Connexion",
     component: ConnexionComponent
@@ -150,6 +168,5 @@ export const routes: Routes = [
     component: InscriptionComponent
 },
   { path: '', redirectTo: 'Connexion', pathMatch: 'full' },
-
 
 ];
