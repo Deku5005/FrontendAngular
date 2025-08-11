@@ -1,0 +1,164 @@
+/* idee-de-projet-contributeurs.component.css */
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.header h2 {
+  margin: 0;
+}
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.actions input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.actions button {
+  padding: 10px 16px;
+  background-color: #5c6bc0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.project-list {
+  margin-top: 10px;
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px;
+  align-items: center;
+  padding: 12px 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-row {
+  font-weight: bold;
+  background-color: #f5f5f5;
+}
+
+.project-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: Inter;
+}
+
+.icon {
+  display: flex;
+  justify-content: end;
+  gap: 12px;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .project-row {
+    grid-template-columns: 30px 1fr;
+  }
+
+  .icon {
+    margin-top: 5px;
+    justify-content: start;
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menu-actions {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 100;
+  padding: 5px 0;
+}
+
+.menu-actions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-actions li {
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.menu-actions li:hover {
+  background: #f0f0f0;
+}
+/* concerne le pop-pop menu idee-projet */
+.modal-content h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+.pop-menu-positionne {
+  position: absolute;
+  top: 30px; /* ou ajuste selon ton besoin */
+  right: 0;
+  z-index: 1000; /* pour qu’il passe par-dessus */
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  width: 200px;
+}
+
+

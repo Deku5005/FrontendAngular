@@ -1,95 +1,33 @@
 <div class="container">
-  <header>
-    <h1>Mes Projets</h1>
-  </header>
 
-  <!-- Section Projets en tant que Gestionnaire -->
-  <section class="project-section">
-    <h2><fa-icon [icon]="faCrown"></fa-icon> Projets en tant que Gestionnaire</h2>
-    <table class="projects-table">
-      <thead>
+  <h1>Liste des projets</h1>
+
+  <table class="data-table" *ngIf="projets.length > 0; else noProjects">
+    <thead>
       <tr>
-        <th>Nom du Projet</th>
-        <th>Statut</th>
-        <th>Détails</th>
+        <th>ID</th>
+        <th>Titre</th>
+        <th>Description</th>
+        <th>Date de création</th>
+       <!-- <th>Actions</th> -->
       </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let project of managerProjects">
-        <td><strong>{{ project.name }}</strong></td>
-        <td>
-            <span class="status" [ngClass]="{
-              'active': project.status === 'En cours',
-              'paused': project.status === 'Débuté',
-              'completed': project.status === 'Terminé'
-            }">{{ project.status }}</span>
-        </td>
-        <td>
-          <a href="javascript:void(0)" (click)="openPopup(project)" class="eye-link">
-            <fa-icon [icon]="faEye"></fa-icon>
-          </a>
-        </td>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projet of projets">
+        <td>{{ projet.idProjet }}</td>
+        <td>{{ projet.titre }}</td>
+        <td>{{ projet.description }}</td>
+        <td>{{ projet.dateCreation }}</td>
+       <!-- <td>
+         <button class="delete-btn" (click)="deleteProject(projet.idProjet, 1)">Supprimer</button>
+        </td>-->
       </tr>
-      </tbody>
-    </table>
-  </section>
+    </tbody>
+  </table>
 
-  <!-- Section Projets en tant que Contributeur -->
-  <section class="project-section">
-    <h2><fa-icon [icon]="faUser"></fa-icon> Projets en tant que Contributeur</h2>
-    <table class="projects-table">
-      <thead>
-      <tr>
-        <th>Nom du Projet</th>
-        <th>Statut</th>
-        <th>Détails</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr *ngFor="let project of contributorProjects">
-        <td><strong>{{ project.name }}</strong></td>
-        <td>
-            <span class="status" [ngClass]="{
-              'active': project.status === 'En cours',
-              'paused': project.status === 'Débuté',
-              'completed': project.status === 'Terminé'
-            }">{{ project.status }}</span>
-        </td>
-        <td>
-          <a href="javascript:void(0)" (click)="openPopup(project)" class="eye-link">
-            <fa-icon [icon]="faEye"></fa-icon>
-          </a>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <!-- Popup pour les détails des projets -->
-  <div class="popup" [class.show]="showPopup" *ngIf="selectedProject as project">
-    <div class="popup-content">
-      <div class="popup-header">
-        <h3>{{ project.name }}</h3>
-        <a href="javascript:void(0)" (click)="closePopup()" class="close">
-          <fa-icon [icon]="faTimes"></fa-icon>
-        </a>
-      </div>
-      <div class="popup-body">
-        <div class="detail-row" *ngIf="project.role">
-          <strong>Rôle:</strong> {{ project.role }}
-        </div>
-        <div class="detail-row" *ngIf="project.status">
-          <strong>Statut:</strong>
-          <span class="status" [ngClass]="{
-            'active': project.status === 'En cours',
-            'paused': project.status === 'Débuté',
-            'completed': project.status === 'Terminé'
-          }">{{ project.status }}</span>
-        </div>
-        <div class="detail-row" *ngIf="project.description">
-          <strong>Description:</strong> {{ project.description }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <ng-template #noProjects>
+    <p>Aucun projet trouvé.</p>
+  </ng-template>
 </div>
+
+
