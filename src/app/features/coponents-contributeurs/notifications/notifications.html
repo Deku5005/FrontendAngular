@@ -1,4 +1,53 @@
+<div id="container">
+  <div id="haut">
+    <app-search-bar></app-search-bar>
+  </div>
 
+  <div id="milieu">
+    <div *ngFor="let notif of notifications" id="premier">
+      <h2>Collabdev</h2>
+      <div id="second">
+        <p>Notification: {{ notif.titre }}</p>
+        <button id="voir" (click)="ouvrirModal(notif)">
+          <fa-icon [icon]="faEye"></fa-icon> Voir
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Ici, on appelle le composant Modal -->
+<app-modal-notification
+  [notification]="notificationSelectionnee"
+  [visible]="modalVisible"
+  (close)="fermerModal()">
+</app-modal-notification>
+
+
+<!--
+<div id="container">
+  <div id="haut">
+     <app-search-bar/>
+
+  </div>
+
+
+
+  <div id="milieu">
+    <div id="premier">
+      <h2>Collabdev</h2>
+      <div id="second">
+        <p>Notification: Proposition d'idées</p>
+        <button id="voir"> <fa-icon [icon]="faEye"></fa-icon> Voir</button>
+      </div>
+    </div>
+
+    <div id="premier">
+      <h2>Collabdev</h2>
+      <div id="second">
+        <p>Notification: Proposition d'idées</p>
+        <button id="voir"> <fa-icon [icon]="faEye"></fa-icon> Voir</button>
+      </div>
 <div id="container">
   <div id="haut">
      <app-search-bar/>
@@ -49,3 +98,31 @@
 
 
 
+
+    </div>
+
+    <div id="premier">
+      <h2>Collabdev</h2>
+      <div id="second">
+        <p>Notification: Proposition d'idées</p>
+        <button id="voir"> <fa-icon [icon]="faEye"></fa-icon> Voir</button>
+      </div>
+    </div>
+
+    <div id="premier">
+      <h2>Collabdev</h2>
+      <div id="second">
+        <p>Notification: Proposition d'idées</p>
+        <button id="voir"> <fa-icon [icon]="faEye"></fa-icon> Voir</button>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+
+ -->

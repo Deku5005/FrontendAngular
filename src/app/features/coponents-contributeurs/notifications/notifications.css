@@ -47,7 +47,8 @@ h2{
   background-color: blue;
   color: white;
   border: none;
-  border-radius: 6px;;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 a{
