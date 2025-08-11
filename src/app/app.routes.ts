@@ -26,8 +26,10 @@ import { ContributionDetailsComponent } from './features/coponents-contributeurs
 import { IdeeDeProjetContributeursComponent } from './features/coponents-contributeurs/idee-de-projet-contributeurs/idee-de-projet-contributeurs';
 
 export const routes: Routes = [
+  // Redirection par défaut vers Connexion
+  { path: '', redirectTo: 'Connexion', pathMatch: 'full' },
 
-   { path: 'new-contribution', component: NewContribution },
+  { path: 'new-contribution', component: NewContribution },
 
   {
     path: "ideeProjet",
@@ -38,135 +40,86 @@ export const routes: Routes = [
     path: "Domaines",
     component: DasboardAdmin,
     children:[
-      {
-        path: "",
-        component: Domaines
-      }
+      { path: "", component: Domaines }
     ]
   },
 
   { path: 'contribution-details', component: ContributionDetailsComponent },
-  { path: '', redirectTo: '/MesContributionsContributeurs', pathMatch: 'full' },
 
   {
-    path: "ParametrerBadge", component: DasboardAdmin, children: [
-
-      {path: "", component: ParametrerLesBadges},
+    path: "ParametrerBadge",
+    component: DasboardAdmin,
+    children: [
+      { path: "", component: ParametrerLesBadges }
     ]
   },
   {
     path: "Projet",
     component: DasboardAdmin,
     children:[
-      {
-        path: "",
-        component: Projets
-      }
+      { path: "", component: Projets }
     ]
   },
   {
     path: "ParemtrerNotication",
     component: DasboardAdmin,
     children:[
-      {
-        path: "",
-        component: ParametrerNotifications
-      }
+      { path: "", component: ParametrerNotifications }
     ]
   },
   {
     path: "AdminDashboard",
     component: DasboardAdmin,
     children: [
-      {
-        path: "",
-        component: DashboardSection
-      }
+      { path: "", component: DashboardSection }
     ]
   },
   {
-  path: "dashboardContributeur",
-  component: DashboardContributeur,
-  children: [
-    {
-      path: "",
-      component: DasboardContributeurSection // affiché par défaut quand on navigue vers /dashboardContributeur
-    }
-  ]
-},
-{
-    path: "TableauContributeur", component: DashboardContributeur,
-     children: [
-    {
-      path: "",
-      component: DasboardContributeurSection // affiché par défaut quand on navigue vers /dashboardContributeur
-    }
-  ]
-},
-
-{
-    path: "ideeProjetContributeur", component: DashboardContributeur,
+    path: "dashboardContributeur",
+    component: DashboardContributeur,
     children: [
-      {
-        path: "",
-        component: IdeeDeProjetContributeursComponent // affiché par défaut quand on navigue vers /ideeProjetContributeur
-      }
+      { path: "", component: DasboardContributeurSection }
     ]
-},
-{
-  path:"ProjetsContributeurs",
-  component: DashboardContributeur,
-  children:[
-    {
-      path:'',
-      component: MesProjetContributeurs // affiché par défaut quand on navigue vers /ProjetsContributeurs
-    }
-  ]
-},
-{
-  path:"MesContributionsContributeurs",
-  component: DashboardContributeur,
-  children:[
-    {
-     path: '',
-     component: MesContributionsContributeurs
-    },
-
-
-  ]
-},
-
-{ path: 'mes-contributions-contributeurs',
-  component: MesContributionsContributeurs },
-
-    { path: 'contribution',
-      component: MesContributionsContributeurs },
-
-{
-  path:"Recompenses",
-  component: DashboardContributeur,
-  children:[
-    {
-      path:'',
-      component: Reconpenses, // affiché par défaut quand on navigue vers /Recompenses
-    }
-  ]
-},
-
-{
-    path: "projects",
-    component: ListProjects,
-},
-
-{
-    path:"Connexion",
-    component: ConnexionComponent
-},
-
-{
-    path:"Inscription",
-    component: InscriptionComponent
-},
-  { path: '', redirectTo: 'Connexion', pathMatch: 'full' },
-
+  },
+  {
+    path: "TableauContributeur",
+    component: DashboardContributeur,
+    children: [
+      { path: "", component: DasboardContributeurSection }
+    ]
+  },
+  {
+    path: "ideeProjetContributeur",
+    component: DashboardContributeur,
+    children: [
+      { path: "", component: IdeeDeProjetContributeursComponent }
+    ]
+  },
+  {
+    path: "ProjetsContributeurs",
+    component: DashboardContributeur,
+    children:[
+      { path:'', component: MesProjetContributeurs }
+    ]
+  },
+  {
+    path: "MesContributionsContributeurs",
+    component: DashboardContributeur,
+    children:[
+      { path: '', component: MesContributionsContributeurs }
+    ]
+  },
+  { path: 'mes-contributions-contributeurs', component: MesContributionsContributeurs },
+  { path: 'contribution', component: MesContributionsContributeurs },
+  {
+    path: "Recompenses",
+    component: DashboardContributeur,
+    children:[
+      { path:'', component: Reconpenses }
+    ]
+  },
+  { path: "projects", component: ListProjects },
+  { path:"Connexion", component: ConnexionComponent },
+  { path:"Inscription", component: InscriptionComponent },
 ];
+
