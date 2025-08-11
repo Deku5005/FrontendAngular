@@ -24,6 +24,8 @@ import {
 } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 import {ConnexionComponent} from './features/login/connexion-component/connexion-component';
 import {InscriptionComponent} from './features/login/inscription-component/inscription-component';
+import { Header } from './features/coponents-contributeurs/header/header';
+import { NotificationsComponent } from './features/coponents-contributeurs/notifications/notifications';
 
 export const routes: Routes = [
 
@@ -138,6 +140,12 @@ export const routes: Routes = [
   ]
 },
 {
+      path: "",
+      component: NotificationsComponent
+
+},
+
+{
     path: "projects",
     component: ListProjects
 },
@@ -149,6 +157,19 @@ export const routes: Routes = [
 {
     path:"Inscription",
     component: InscriptionComponent
+},
+
+{
+
+  path: "Notification",
+  component: DashboardContributeur,
+  children : [
+    {
+      path: "",
+      component: NotificationsComponent
+    }
+  ]
+
 },
   { path: '', redirectTo: 'Connexion', pathMatch: 'full' },
 
