@@ -6,7 +6,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   selector: 'app-ajouter-commentaires',
   imports: [
     ReactiveFormsModule,
-    CommonModule,
     FormsModule
   ],
   templateUrl: './ajouter-commentaires.html',

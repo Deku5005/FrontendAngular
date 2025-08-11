@@ -13,6 +13,7 @@ import { DasboardContributeurSection } from './features/coponents-contributeurs/
 import { ListProjects } from './features/coponents-contributeurs/list-projects/list-projects';
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
+
 import {
   MesProjetContributeurs
 } from './features/coponents-contributeurs/mes-projet-contributeurs/mes-projet-contributeurs';
@@ -21,6 +22,7 @@ import {
 } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 import {ConnexionComponent} from './features/login/connexion-component/connexion-component';
 import {InscriptionComponent} from './features/login/inscription-component/inscription-component';
+import { IdeeDeProjetContributeursComponent } from './features/coponents-contributeurs/idee-de-projet-contributeurs/idee-de-projet-contributeurs';
 
 export const routes: Routes = [
 
@@ -100,7 +102,7 @@ export const routes: Routes = [
     children: [
       {
         path: "",
-        component: MesProjetContributeurs // affiché par défaut quand on navigue vers /ideeProjetContributeur
+        component: IdeeDeProjetContributeursComponent // affiché par défaut quand on navigue vers /ideeProjetContributeur
       }
     ]
 },
