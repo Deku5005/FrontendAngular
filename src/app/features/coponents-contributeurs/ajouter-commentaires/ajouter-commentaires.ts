@@ -1,10 +1,11 @@
 import {Component, EventEmitter, Output} from '@angular/core';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-ajouter-commentaires',
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   templateUrl: './ajouter-commentaires.html',
   standalone: true,

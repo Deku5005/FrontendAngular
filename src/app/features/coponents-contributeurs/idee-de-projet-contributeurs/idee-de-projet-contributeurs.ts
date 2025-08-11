@@ -5,13 +5,15 @@ import {faEllipsisV, faEye} from '@fortawesome/free-solid-svg-icons';
 import { DetailIdeeProjet } from '../detail-idee-projet/detail-idee-projet';
 import {PupPopmenu} from '../pup-popmenu/pup-popmenu';
 import {FaireDemandeGestionnaire} from '../faire-demande-gestionnaire/faire-demande-gestionnaire';
+import {FormAjoutIdee} from '../form-ajout-idee/form-ajout-idee';
+
 
 
 @Component({
   selector: 'app-idee-de-projet-contributeurs',
   standalone: true,
   templateUrl: './idee-de-projet-contributeurs.html',
-  imports: [CommonModule, FaIconComponent, DetailIdeeProjet, PupPopmenu, FaireDemandeGestionnaire],
+  imports: [CommonModule, FaIconComponent, DetailIdeeProjet, PupPopmenu, FaireDemandeGestionnaire, FormAjoutIdee],
   styleUrl: './idee-de-projet-contributeurs.css'
 })
 export class IdeeDeProjetContributeursComponent {
@@ -71,6 +73,24 @@ export class IdeeDeProjetContributeursComponent {
   fermerMenu() {
     this.selectedProjet = null;
   }
+  // cas du formulaire d'ajout de projet
+
+  afficherFormulaire = false;
+
+  ouvrirFormulaire() {    this.afficherFormulaire = true;
+
+    this.afficherFormulaire = true;
+  }
+
+  fermerFormulaire() {
+    this.afficherFormulaire = false;
+  }
+
+  ajouterProjetDepuisFormulaire(projet: any) {
+
+    this.fermerFormulaire();
+  }
+
 
 
 

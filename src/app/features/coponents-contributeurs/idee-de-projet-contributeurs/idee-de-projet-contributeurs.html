@@ -3,7 +3,7 @@
     <h2>Idée de Projets</h2>
     <div class="actions">
       <input type="text" placeholder="Rechercher projets, membres, fonctionnalités..." />
-      <button>+ Ajouter</button>
+      <button (click)="ouvrirFormulaire()">+ Ajouter</button>
     </div>
   </div>
 
@@ -42,6 +42,12 @@
       <button class="close-btn" (click)="fermerDetail()">Fermer</button>
     </div>
   </div>
+  <!-- Afficher le composant formulaire uniquement si afficherFormulaire = true -->
+  <app-form-ajout-idee
+    *ngIf="afficherFormulaire"
+    (annuler)="fermerFormulaire()"
+    (projetCree)="ajouterProjetDepuisFormulaire($event)"
+  ></app-form-ajout-idee>
 
 </div>
 
