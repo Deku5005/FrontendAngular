@@ -1,22 +1,20 @@
 <div class="notification-container">
   <h1>Paramétrer les Notifications</h1>
 
+  <!-- Lier le formulaire à notificationForm -->
   <form [formGroup]="notificationForm" (ngSubmit)="onSubmit()" class="notification-form">
+
     <div class="form-group">
       <label for="notificationType">Type de Notification</label>
       <select
         id="notificationType"
-        formControlName="notificationType"
-        [class.invalid]="notificationForm.get('notificationType')?.invalid && notificationForm.get('notificationType')?.touched">
+        formControlName="typeNotyf"
+        required>
         <option value="">Sélectionnez un type</option>
         <option *ngFor="let type of notificationTypes" [value]="type.value">
           {{ type.label }}
         </option>
       </select>
-      <div *ngIf="notificationForm.get('notificationType')?.invalid && notificationForm.get('notificationType')?.touched"
-           class="error-message">
-        Veuillez sélectionner un type de notification
-      </div>
     </div>
 
     <div class="form-group">
@@ -26,16 +24,17 @@
         formControlName="description"
         rows="4"
         placeholder="Entrez la description de la notification..."
-        [class.invalid]="notificationForm.get('description')?.invalid && notificationForm.get('description')?.touched">
+        required>
       </textarea>
-      <div *ngIf="notificationForm.get('description')?.errors?.['required'] && notificationForm.get('description')?.touched"
-           class="error-message">
-        La description est requise
-      </div>
-      <div *ngIf="notificationForm.get('description')?.errors?.['minlength'] && notificationForm.get('description')?.touched"
-           class="error-message">
-        La description doit contenir au moins 10 caractères
-      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="date">Date</label>
+      <input
+        id="date"
+        formControlName="date"
+        type="date"
+        required>
     </div>
 
     <button
@@ -48,6 +47,6 @@
   </form>
 
   <div *ngIf="showSuccess" class="success-message">
-     Notification envoyée avec succès !
+    Notification envoyée avec succès !
   </div>
 </div>

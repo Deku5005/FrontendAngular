@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { dateTimestampProvider } from 'rxjs/internal/scheduler/dateTimestampProvider';
 
 @Component({
   selector: 'app-parametrer-notifications',
@@ -15,52 +17,76 @@ export class ParametrerNotifications {
   isSubmitting = false;
   showSuccess = false;
 
+  notificationData = {
+    typeNotyf: '',
+    description: '',
+    dateCreation: dateTimestampProvider.now()
+  };
+
+   idAdmin = 1;
+
+
+  notification : any[] = [];
+
   // Options pour les types de notifications
   notificationTypes = [
-    { value: 'INSCRIPTION', label: 'Inscription' },
-    { value: 'COMMENTAIRE', label: 'Commentaire' },
-    { value: 'GAINCOINS', label: 'Gain de Coins' },
-    { value: 'GAINBADGE', label: 'Gain de Badge' },
-    { value: 'DEMANDERARTICIPATION', label: 'Demander Participation' },
-    { value: 'PROPOSITIONIDEEPROJET', label: 'Proposition d\'Idée de Projet' },
-    { value: 'DEMANDECONTRIBUTION', label: 'Demande de Contribution' },
-    { value: 'DEMADEACCEPTEE', label: 'Demande Acceptée' },
-    { value: 'DEMANDEREJETEE', label: 'Demande Rejetée' },
-    { value: 'DEMANDEGESTIONNAIREACCENTEE', label: 'Demande Gestionnaire Acceptée' },
-    { value: 'DEMANDEGESTIONNAIREREJETEE', label: 'Demande Gestionnaire Rejetée' },
-    { value: 'DEMANDEGESTIONNAIRE', label: 'Demande Gestionnaire' }
+    { value: 'INSCRIPTION', label: 'INSCRIPTION' },
+    { value: 'COMMENTAIRE', label: 'COMMENTAIRE' },
+    { value: 'GAINCOINS', label: 'GAINCOINS' },
+    { value: 'GAINBADGE', label: 'GAINBADGE' },
+    { value: 'DEMANDERARTICIPATION', label: 'DEMANDERARTICIPATION' },
+    { value: 'PROPOSITIONIDEEPROJET', label: 'PROPOSITIONIDEEPROJET' },
+    { value: 'DEMANDECONTRIBUTION', label: 'DEMANDECONTRIBUTION' },
+    { value: 'DEMADEACCEPTEE', label: 'DEMADEACCEPTEE' },
+    { value: 'DEMANDEREJETEE', label: 'DEMANDEREJETEE' },
+    { value: 'DEMANDEGESTIONNAIREACCENTEE', label: 'DEMANDEGESTIONNAIREACCENTEE' },
+    { value: 'DEMANDEGESTIONNAIREREJETEE', label: 'DEMANDEGESTIONNAIREREJETEE' },
+    { value: 'DEMANDEGESTIONNAIRE', label: 'DEMANDEGESTIONNAIRE' }
   ];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private http: HttpClient) {
     this.notificationForm = this.fb.group({
-      notificationType: ['', Validators.required],
-      description: ['', [Validators.required, Validators.minLength(10)]]
+      typeNotyf: ['', Validators.required],
+      description: ['', [Validators.required, Validators.minLength(10)]],
+      date: ['', Validators.required]
     });
   }
 
-  onSubmit(): void {
-    if (this.notificationForm.invalid) {
-      this.markAllAsTouched();
-      return;
-    }
-
+onSubmit() {
+  if (this.notificationForm.valid) {
     this.isSubmitting = true;
 
-    // Simuler l'envoi à l'API
-    setTimeout(() => {
-      console.log('Données envoyées:', this.notificationForm.value);
-      this.isSubmitting = false;
-      this.showSuccess = true;
-      this.notificationForm.reset();
+    // Récupérer les valeurs directement depuis le FormGroup
+    const formValue = this.notificationForm.value;
 
-      // Cacher le message après 3 secondes
-      setTimeout(() => this.showSuccess = false, 3000);
-    }, 1000);
+    const payload = {
+      typeNotyf: formValue.typeNotyf,
+      description: formValue.description,
+      dateCreation: formValue.date
+    };
+
+    this.http.post(`http://localhost:8080/api/notifications/administrateurs/${this.idAdmin}`, payload,{headers : new HttpHeaders({'Content-Type': 'application/json'})})
+      .subscribe({
+        next: (res) => {
+          this.showSuccess = true;
+          console.log('Notification envoyée avec succès', res);
+          this.notificationForm.reset();
+          this.isSubmitting = false;
+        },
+        error: (err) => {
+          console.error('Erreur création notification', err);
+          alert('Erreur lors de la création');
+          this.isSubmitting = false;
+        }
+      });
+
   }
+}
 
-  private markAllAsTouched(): void {
-    Object.values(this.notificationForm.controls).forEach(control => {
-      control.markAsTouched();
-    });
+
+  
+
+  ngOnInit(): void {
+   
   }
 }
