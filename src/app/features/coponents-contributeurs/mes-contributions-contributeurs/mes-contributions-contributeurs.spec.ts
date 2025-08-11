@@ -12,7 +12,7 @@ import { RouterModule } from '@angular/router';
   template: '<div>Fonctionnalites works!</div>'
 })
 
-export class FonctionnalitesComponent {
+export class Fonctionnalites {
 }
 
 describe('MesContributionsContributeurs', () => {

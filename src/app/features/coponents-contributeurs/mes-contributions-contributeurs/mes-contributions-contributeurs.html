@@ -23,7 +23,7 @@
     </button>
   </div>
 
-  <div class="card-container">
+  <div class="card-container" *ngIf="activeTab === 'contribution'">
     <!-- Boucle sur les contributions -->
     <div class="card" *ngFor="let item of contributions">
       <div class="card-header">
@@ -50,4 +50,21 @@
 </div>
     </div>
   </div>
+
+  <div *ngIf="activeTab === 'features'" class="fonctionnalites-table-container">
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fonctionnalités</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let feature of features">
+        <th scope="row">{{feature.id}}</th>
+        <td>{{feature.description}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 </div>

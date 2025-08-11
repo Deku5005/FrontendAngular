@@ -3,6 +3,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { Contribution } from '../mes-contributions-contributeurs/mes-contributions-contributeurs';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-contribution-details',
@@ -14,7 +15,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 export class ContributionDetailsComponent {
   contributionData: Contribution | null = null;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private location: Location) {
     const navigation = this.router.getCurrentNavigation();
     if (navigation?.extras.state) {
       this.contributionData = navigation.extras.state['contributionData'];
@@ -39,7 +40,9 @@ export class ContributionDetailsComponent {
     }
   }
 
-  closeModal() {
-    this.router.navigate(['/mes-contributions-contributeurs']);
+  goBack(): void {
+    //Logique de retour
+    this.location.back(); // Retour à la page précédente
+
   }
 }

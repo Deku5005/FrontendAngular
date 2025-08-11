@@ -15,7 +15,6 @@ import { DasboardContributeurSection } from './features/coponents-contributeurs/
 import { ListProjects } from './features/coponents-contributeurs/list-projects/list-projects';
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
-import { FonctionnalitesComponent } from './features/coponents-contributeurs/fonctionnalites/fonctionnalites';
 import { MesContributionsContributeurs } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 
 import {
@@ -48,7 +47,6 @@ export const routes: Routes = [
     ]
   },
 
-//{ path: 'MesContributionsContributeurs', component: MesContributionsContributeurs },
   { path: 'contribution-details', component: ContributionDetailsComponent },
   { path: '', redirectTo: '/MesContributionsContributeurs', pathMatch: 'full' },
 
@@ -132,10 +130,11 @@ export const routes: Routes = [
   component: DashboardContributeur,
   children:[
     {
-
      path: '',
-     component: MesContributionsContributeurs // affiché par défaut quand on navigue vers /ContriContri
-    }
+     component: MesContributionsContributeurs
+    },
+
+
   ]
 },
 
@@ -155,9 +154,6 @@ export const routes: Routes = [
     }
   ]
 },
-  { path: 'fonctionnalites', component: FonctionnalitesComponent },
-{ path: 'contribution', component: MesContributionsContributeurs },
-  { path: '', redirectTo: '/contribution', pathMatch: 'full' },
 
 {
     path: "projects",
