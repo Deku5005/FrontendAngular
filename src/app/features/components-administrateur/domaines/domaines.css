@@ -124,6 +124,17 @@ section p{
   margin-top: 10%;
 }
 
-#cartes{
-    display: flex;
+
+
+#cartes {
+  display: flex;
+  flex-wrap: wrap; /* Permet le retour à la ligne */
+  gap: 1.5%; /* Optionnel : espace entre les cartes */
+  justify-content: flex-start; /* Pour bien aligner à gauche */
+}
+
+#carte {
+  width: 23%; /* Ajuste la largeur à environ 1/4 (4 cartes par ligne) en tenant compte des marges */
+  margin-left: 7%; /* Annule la marge gauche que tu avais pour éviter trop d'espacement */
+  margin-top: 2%;
 }

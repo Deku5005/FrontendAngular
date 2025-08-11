@@ -29,7 +29,7 @@ export class ParametrerLesBadges implements AfterViewInit {
 
       if(this.estActiver){
         this.PrincipalRef.nativeElement.style.color='';
-        this.PrincipalRef.nativeElement.style.backgroundColor='yellow';
+        this.PrincipalRef.nativeElement.style.backgroundColor='';
       }else{
         this.PrincipalRef.nativeElement.style.color='';
         this.PrincipalRef.nativeElement.style.backgroundColor='';
