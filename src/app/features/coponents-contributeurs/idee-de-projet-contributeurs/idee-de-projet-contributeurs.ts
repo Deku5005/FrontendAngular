@@ -6,6 +6,7 @@ import { DetailIdeeProjet } from '../detail-idee-projet/detail-idee-projet';
 import {PupPopmenu} from '../pup-popmenu/pup-popmenu';
 import {FaireDemandeGestionnaire} from '../faire-demande-gestionnaire/faire-demande-gestionnaire';
 import {FormAjoutIdee} from '../form-ajout-idee/form-ajout-idee';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -21,24 +22,24 @@ export class IdeeDeProjetContributeursComponent {
   faEye = faEye;
   faEllipsisV = faEllipsisV;
 
-  projets = [
-    { nom: 'Système de recommandation' },
-    { nom: 'Système de distribution' },
-    { nom: 'Application de chat temps réel' },
-    { nom: 'Site e-commerce avec gestion de stock, panier, et suivi ...' },
-    { nom: 'Système de suivi des ventes et statistiques (tableaux de bord)' },
-    { nom: 'Application de domotique pour gérer lumières, température…' },
-    { nom: 'Capteurs connectés pour la surveillance agricole' },
-    { nom: 'Plateforme de e-learning avec quiz interactifs et suivi des progrès' },
-    { nom: 'Application de quiz multijoueur en temps réel' },
-    { nom: 'Application de gestion de budget personnel avec graphiques ...' },
-    { nom: 'Gestion des stocks avec alertes de rupture' },
-    { nom: 'Plateforme de bénévolat reliant associations et volontaires' },
-    { nom: 'Application de suivi de santé (pression, glycémie, sommeil)' },
-    { nom: 'Assistant nutritionnel qui propose des repas équilibrés selon ...' },
-    { nom: 'Système de billetterie pour événements avec QR Code ...' },
-    { nom: 'Plateforme de streaming musical avec playlists collaboratives' },
-  ];
+  ideeProjet : any[] = [];
+  constructor(private http: HttpClient) {}
+
+
+  ngOnInit(): void {
+     
+    const apiUrl = `http://localhost:8080/api/ideeProjets`;
+    this.http.get<any[]>(apiUrl).subscribe({
+      next: (res) => {
+        this.ideeProjet = res;
+        console.log('Projets reçus :', this.ideeProjet);
+      },
+      error: (err) => {
+        console.error('Erreur lors du chargement des projets', err);
+      }
+    });
+  }
+
   projetSelectionne: any = null;
 
   ouvrirDetail(projet: any) {

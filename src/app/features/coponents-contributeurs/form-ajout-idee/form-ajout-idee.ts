@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-form-ajout-idee',
@@ -22,15 +23,22 @@ export class FormAjoutIdee {
     leguer: false,
   };
 
+  constructor(private http: HttpClient) {}
+
   // méthode appelée au clic sur "Soumettre l'idée"
-  soumettre() {
-    // validation simple
-    if (!this.nouveauProjet.titre.trim()) {
-      alert('Le titre est obligatoire');
-      return;
-    }
-    // on émet l'événement avec le projet créé
-    this.projetCree.emit({ ...this.nouveauProjet });
+ onSubmit() {
+    const apiUrl = `http://localhost:8080/api/ideeProjets/contributeur/${2}/domaine/${12}`;
+
+    this.http.post(apiUrl, this.nouveauProjet).subscribe({
+      next: (res) => {
+        console.log('projet créé', res);
+        alert('Projet créé avec succès');
+      },
+      error: (err) => {
+        console.error('Erreur', err);
+        alert('Une erreur est survenue');
+      }
+    });
   }
 
   // méthode appelée au clic sur "Annuler" ou sur la croix

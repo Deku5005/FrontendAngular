@@ -8,23 +8,27 @@
   </div>
 
   <div class="project-list">
-    <div class="project-row" style="position: relative;" *ngFor="let projet of projets; let i = index">
-      <div>{{ i + 1 }}</div>
-      <div class="project-name">{{ projet.nom }}</div>
+    <div class="project-row" style="position: relative;" *ngFor="let ideeProjets of ideeProjet">
+     
+      <div class="project-description">{{ ideeProjets.description }}</div>
+      <div class="project-statut">{{ ideeProjets.statut }}</div>
+      <div class="project-niveau">{{ ideeProjets.niveau }}</div>
+      <div class="project-titre">{{ ideeProjets.titre }}</div>
+      <div class="project-leguer">{{ ideeProjets.leguer }}</div>
       <div class="icon">
-        <button class="btn" (click)="ouvrirDetail(projet)">
+        <button class="btn" (click)="ouvrirDetail(ideeProjets)">
           <fa-icon [icon]="faEye"></fa-icon>
         </button>
         <div>
-          <button class="btn" (click)="ouvrirMenu(projet)">
+          <button class="btn" (click)="ouvrirMenu(ideeProjets)">
             <fa-icon [icon]="faEllipsisV"></fa-icon>
           </button>
           <!-- Popup menu (incorrectement placé) -->
           <app-pup-popmenu class="pop-menu-positionne"
-                           *ngIf="selectedProjet === projet"
-                           (voirCommentaires)="voirCommentaires(projet)"
-                           (faireDemande)="faireDemande(projet)"
-                           (ajouterCommentaire)="ajouterCommentaire(projet)"
+                           *ngIf="selectedProjet === ideeProjets"
+                           (voirCommentaires)="voirCommentaires(ideeProjets)"
+                           (faireDemande)="faireDemande(ideeProjets)"
+                           (ajouterCommentaire)="ajouterCommentaire(ideeProjets)"
                            (fermer)="fermerMenu()"
           ></app-pup-popmenu>
         </div>
