@@ -1,3 +1,4 @@
+import { IdeeDeProjet } from './../../components-administrateur/idee-de-projet/idee-de-projet';
 import { Component } from '@angular/core';
 
 @Component({

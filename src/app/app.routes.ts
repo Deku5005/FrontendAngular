@@ -1,5 +1,6 @@
+import { NewCoinsComponent } from './features/coponents-contributeurs/new-coins/new-coins';
 import { NewContribution } from './features/coponents-contributeurs/new-contribution/new-contribution';
-import { Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 //import {IdeesDeProjets} from './features/components-administrateur/idees-de-projets/idees-de-projets';
 import {DasboardAdmin} from './features/components-administrateur/dasboard-admin/dasboard-admin';
@@ -14,6 +15,7 @@ import { DashboardContributeur } from './features/coponents-contributeurs/dashbo
 import { DasboardContributeurSection } from './features/coponents-contributeurs/dasboard-contributeur-section/dasboard-contributeur-section';
 import { ListProjects } from './features/coponents-contributeurs/list-projects/list-projects';
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
+import { DashboardGestionnaire } from './features/coponents-contributeurs/dashboard-gestionnaire/dashboard-gestionnaire';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
 import { MesContributionsContributeurs } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
 
@@ -26,10 +28,16 @@ import {
 import {ConnexionComponent} from './features/login/connexion-component/connexion-component';
 import {InscriptionComponent} from './features/login/inscription-component/inscription-component';
 import { ContributionDetailsComponent } from './features/coponents-contributeurs/contribution-details/contribution-details';
+import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
 
    { path: 'new-contribution', component: NewContribution },
+
+{
+    path: 'new-coins',
+    component: NewCoinsComponent
+  },
 
   {
     path: "ideeProjet",
@@ -121,7 +129,7 @@ export const routes: Routes = [
   children:[
     {
       path:'',
-      component: MesProjetContributeurs // affiché par défaut quand on navigue vers /ProjetsContributeurs
+      component: MesProjetContributeurs// affiché par défaut quand on navigue vers /ProjetsContributeurs
     }
   ]
 },
@@ -138,11 +146,6 @@ export const routes: Routes = [
   ]
 },
 
-{ path: 'mes-contributions-contributeurs',
-  component: MesContributionsContributeurs },
-
-    { path: 'contribution',
-      component: MesContributionsContributeurs },
 
 {
   path:"Recompenses",
@@ -172,3 +175,4 @@ export const routes: Routes = [
   { path: '', redirectTo: 'Connexion', pathMatch: 'full' },
 
 ];
+

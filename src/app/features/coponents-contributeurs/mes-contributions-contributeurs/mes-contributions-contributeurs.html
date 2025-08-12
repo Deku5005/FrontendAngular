@@ -17,7 +17,7 @@
 </div>
 
 <div class="content">
-  <div class="add-container">
+  <div class="add-container" *ngIf="activeTab === 'contribution'">
     <button class="btn-ajouter" (click)="addNew()">
       <i class="fa fa-plus"></i> Ajouter
     </button>
@@ -57,12 +57,18 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Fonctionnalités</th>
+        <th scope="col">Statut</th>
+        <th scope="col">Points</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let feature of features">
         <th scope="row">{{feature.id}}</th>
         <td>{{feature.description}}</td>
+        <td class="status-cell">
+          <span class="status {{feature.status}}">{{feature.status}}</span>
+        </td>
+        <td class="point-cell">{{feature.point}}</td>
       </tr>
     </tbody>
   </table>

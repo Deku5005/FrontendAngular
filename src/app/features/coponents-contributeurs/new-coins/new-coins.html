@@ -1,0 +1,15 @@
+<div class="coins-container">
+  <h2>Ajouter des New Coins</h2>
+
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="amount">Nombre de coins :</label>
+      <input type="number" id="amount" [(ngModel)]="coinsData.amount" name="amount" required>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="btn-cancel" (click)="goBack()">Annuler</button>
+      <button type="submit" class="btn-submit">Modifier</button>
+    </div>
+  </form>
+</div>

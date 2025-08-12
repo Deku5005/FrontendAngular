@@ -61,17 +61,17 @@ contributions: Contribution[] = [
     description: 'Génération et validation de tokens JWT pour les API internes.',
     status: 'approved',
     statusText: 'Approuvée',
-    auteur: 'Élodie MARTIN'
+    auteur: 'Mamoutou Sangaré'
   }
 ];
 
 features = [
-  { id: 1, description: 'Mode sombre / clair : Thèmes personnalisables.' },
-  { id: 2, description: 'Notifications : Alertes en temps réel, push notifications, email, SMS.' },
-  { id: 3, description: 'Commentaires / likes / partages : Interaction entre utilisateurs.' },
-  { id: 4, description: 'Navigation fluide : Menus, barres de recherche, onglets.' },
-  { id: 5, description: 'Tableau de bord (Dashboard) : Vue d\'ensemble pour l\'utilisateur.' },
-  { id: 6, description: 'Messagerie : Chat privé ou de groupe.' }
+  { id: 1, description: 'Mode sombre / clair : Thèmes personnalisables.', status: 'Encours', point: '100' },
+  { id: 2, description: 'Notifications : Alertes en temps réel, push notifications, email, SMS.', status: 'Encours', point: '100' },
+  { id: 3, description: 'Commentaires / likes / partages : Interaction entre utilisateurs.', status: 'Terminé', point: '500' },
+  { id: 4, description: 'Navigation fluide : Menus, barres de recherche, onglets.', status: 'Pas commencé', point: '100' },
+  { id: 5, description: 'Tableau de bord (Dashboard) : Vue d\'ensemble pour l\'utilisateur.', status: 'Terminé', point: '200' },
+  { id: 6, description: 'Messagerie : Chat privé ou de groupe.', status: 'Terminé', point: '300' },
 ];
 
    switchTab(tab: string): void {

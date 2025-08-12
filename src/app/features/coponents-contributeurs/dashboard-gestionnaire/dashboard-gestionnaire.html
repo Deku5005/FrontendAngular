@@ -1,0 +1,134 @@
+<div class="top-bar">
+  <div class="tabs">
+    <button
+      class="tab"
+      [class.active]="activeTab === 'contributions'"
+      (click)="switchTab('contributions')">
+      Contributions
+    </button>
+    <button
+      class="tab"
+      [class.active]="activeTab === 'fonctionnalites'"
+      (click)="switchTab('fonctionnalites')">
+      Fonctionnalités
+    </button>
+    <button
+      class="tab"
+      [class.active]="activeTab === 'demandes'"
+      (click)="switchTab('demandes')">
+      Demandes
+    </button>
+    <button
+      class="tab"
+      [class.active]="activeTab === 'coins'"
+      (click)="switchTab('coins')">
+      Coins
+    </button>
+  </div>
+  <button class="btn-retour" (click)="goback()">Retour</button>
+</div>
+
+<div class="content">
+  <!-- Section Contributions -->
+<div *ngIf="activeTab === 'contributions'">
+  <h3>La liste des contributions</h3>
+  <div class="contributions-list">
+    <div class="contribution-item" *ngFor="let item of contributions">
+      <h2>{{item.auteur}}</h2>
+      <div class="contribution-description">{{item.title}}</div>
+      <div class="validation-section">
+        <div class="validator">
+        </div>
+        <div class="action-buttons">
+          <button class="btn-valider" (click)="valider(item)">Valider</button>
+          <button class="btn-refuser" (click)="refuser(item)">Refuser</button>
+        </div>
+      </div>
+      <div class="divider"></div>
+    </div>
+  </div>
+</div>
+
+  <!-- Section Fonctionnalités -->
+  <div *ngIf="activeTab === 'fonctionnalites'">
+    <div class="add-container">
+    <button class="btn-ajouter" (click)="addNew()">
+      <i class="fa fa-plus"></i> Ajouter
+    </button>
+  </div>
+    <h3>Liste des fonctionnalités</h3>
+    <div class="fonctionnalites-table-container">
+      <table>
+      <thead>
+        <tr>
+          <th>N°</th>
+          <th>Description</th>
+          <th>Statut</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of fonctionnalites">
+          <th>{{item.id}}</th>
+          <td>{{item.description}}</td>
+          <td class="status-cell">
+            <span class="status {{item.status.toLowerCase().replace(' ', '-')}}">{{item.status}}</span>
+          </td>
+          <td>{{item.points}}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section Demandes -->
+  <div *ngIf="activeTab === 'demandes'">
+    <h3>Liste des demandes</h3>
+    <div class="table-wrapper">
+      <table>
+        <tbody>
+          <tr *ngFor="let item of demandes">
+            <th>{{item.id}}</th>
+            <td>{{item.auteur}}<br>{{item.type}}</td>
+            <td><i class="fa fa-eye"></i></td>
+            <td>
+              <button class="btn-valider" (click)="valider(item)">Valider</button>
+              <button class="btn-refuser" (click)="refuser(item)">Refuser</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Section Coins -->
+<div *ngIf="activeTab === 'coins'">
+  <div class="add-container">
+    <button class="btn-ajouter" (click)="addNew()">
+      <i class="fa fa-plus"></i> Ajouter
+    </button>
+  </div>
+  <h3>Liste des coins</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Coins</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of coins">
+          <th>{{item.id}}</th>
+          <td>{{item.amount}}</td>
+          <td>
+            <button class="btn-modifier" (click)="modifierCoins(item)">Modifier</button>
+            <i class="fa fa-trash" (click)="supprimerCoins(item)"></i>
+            <i class="fa fa-lightbulb-o"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

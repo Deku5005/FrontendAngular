@@ -1,0 +1,362 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  padding: 20px;
+  color: #333;
+}
+
+/* Top bar (onglets + retour) */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.tab {
+  padding: 10px 25px;
+  border: none;
+  background-color: #f1f1ff;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4b4b8c;
+  transition: all 0.3s ease;
+
+}
+
+.tab.active {
+  background-color: #7f56d9;
+  color: white;
+}
+
+.btn-retour {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Ajout */
+.add-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.btn-ajouter {
+  background-color: #7f56d9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-ajouter i {
+  margin-right: 8px;
+}
+
+/* Carte */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 0 5px rgba(130, 129, 255, 0.3);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 260px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.icon-circle {
+  background-color: #e4e2ff;
+  color: #4b4b8c;
+  border-radius: 50%;
+  padding: 10px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-weight: bold;
+  text-transform: uppercase;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.card-date {
+  font-size: 12px;
+  color: #999;
+}
+
+/* Corps */
+.card-body p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* Statut */
+.card-status {
+  margin-top: auto;
+}
+
+.status {
+  padding: 5px 15px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status.rejected {
+  background-color: #e3d6ff;
+  color: #673ab7;
+}
+
+/* Footer */
+.card-footer {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  margin-top: 15px;
+}
+
+.details-link {
+  font-size: 14px;
+  text-decoration: underline;
+  color: #4f46e5;
+  cursor: pointer;
+}
+
+/* Styles généraux */
+h3 {
+  margin: 20px 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+/* Styles des tables */
+.table-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+/* Styles des boutons */
+.btn-valider {
+  background-color: #28a745;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-refuser {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-modifier {
+  background-color: #17a2b8;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Styles des statuts */
+.status {
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.status.en-cours {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.status.terminé {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.status.pas-commencé {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Icônes */
+.fa-eye, .fa-lightbulb-o {
+  color: #6c757d;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+}
+
+/* Nouveaux styles pour la liste des contributions */
+.contributions-list {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.contribution-item {
+  margin-bottom: 30px;
+}
+
+.contribution-item h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.contribution-description {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.validation-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.validator {
+  background-color: #f5f5f5;
+  padding: 8px 15px;
+  border-radius: 6px;
+}
+
+.validator strong {
+  display: block;
+  color: #7f56d9;
+}
+
+.ref-user {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin-top: 20px;
+}
+
+/* Adaptation des boutons existants */
+.btn-valider, .btn-refuser {
+  padding: 8px 20px;
+  font-size: 0.9rem;
+}
+
+/* Style pour l'icône poubelle */
+.fa-trash {
+  color: #dc3545;
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-bar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 8px 10px;
+  }
+}
