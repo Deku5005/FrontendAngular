@@ -1,0 +1,35 @@
+<div class="modal">
+  <div class="modal-header">
+    <h1>Nouvelle Fonctionnalité</h1>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" class="form">
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        [(ngModel)]="fonctionnaliteData.description"
+        name="description"
+        required
+        placeholder="Décrivez la nouvelle fonctionnalité...">
+      </textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="points">Points</label>
+      <select
+        id="points"
+        [(ngModel)]="fonctionnaliteData.points"
+        name="points"
+        required>
+        <option value="" disabled selected>Sélectionnez des points</option>
+        <option *ngFor="let point of availablePoints" [value]="point">{{point}}</option>
+      </select>
+    </div>
+
+    <div class="buttons">
+      <button type="button" class="cancel-btn" (click)="goBack()">Annuler</button>
+      <button type="submit" class="submit-btn">Enregistrer</button>
+    </div>
+  </form>
+</div>

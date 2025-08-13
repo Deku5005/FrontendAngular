@@ -1,15 +1,23 @@
-<div class="coins-container">
-  <h2>Ajouter des New Coins</h2>
+<div class="modal">
+  <div class="modal-header">
+    <h1>Ajout de Coins</h1>
+  </div>
 
-  <form (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()" class="form">
     <div class="form-group">
-      <label for="amount">Nombre de coins :</label>
-      <input type="number" id="amount" [(ngModel)]="coinsData.amount" name="amount" required>
+      <label for="amount">Nombre de Coins</label>
+      <input
+        type="number"
+        id="amount"
+        [(ngModel)]="coinsData.amount"
+        name="amount"
+        required
+        placeholder="Entrez le nombre de coins">
     </div>
 
     <div class="buttons">
-      <button type="button" class="btn-cancel" (click)="goBack()">Annuler</button>
-      <button type="submit" class="btn-submit">Modifier</button>
+      <button type="button" class="cancel-btn" (click)="goBack()">Annuler</button>
+      <button type="submit" class="submit-btn">Enregistrer</button>
     </div>
   </form>
 </div>

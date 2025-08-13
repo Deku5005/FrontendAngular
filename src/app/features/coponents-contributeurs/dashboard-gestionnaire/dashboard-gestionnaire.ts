@@ -84,9 +84,13 @@ contributions = [
     this.activeTab = tab;
   }
 
-  addNew(): void {
+addNew(): void {
+  if (this.activeTab === 'fonctionnalites') {
+    this.router.navigate(['/new-fonctionnalites']);
+  } else if (this.activeTab === 'coins') {
     this.router.navigate(['/new-coins']);
   }
+}
 
   goback(): void {
     this.location.back();

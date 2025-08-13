@@ -15,6 +15,7 @@ import { DashboardContributeur } from './features/coponents-contributeurs/dashbo
 import { DasboardContributeurSection } from './features/coponents-contributeurs/dasboard-contributeur-section/dasboard-contributeur-section';
 import { ListProjects } from './features/coponents-contributeurs/list-projects/list-projects';
 import { Reconpenses } from './features/coponents-contributeurs/reconpenses/reconpenses';
+import { NewFonctionnalites } from './features/coponents-contributeurs/new-fonctionnalites/new-fonctionnalites';
 import { DashboardGestionnaire } from './features/coponents-contributeurs/dashboard-gestionnaire/dashboard-gestionnaire';
 import { PopupEye } from './features/coponents-contributeurs/list-projects/popup-eye/popup-eye';
 import { MesContributionsContributeurs } from './features/coponents-contributeurs/mes-contributions-contributeurs/mes-contributions-contributeurs';
@@ -38,6 +39,9 @@ export const routes: Routes = [
     path: 'new-coins',
     component: NewCoinsComponent
   },
+
+  { path: 'new-fonctionnalites',
+    component: NewFonctionnalites },
 
   {
     path: "ideeProjet",
