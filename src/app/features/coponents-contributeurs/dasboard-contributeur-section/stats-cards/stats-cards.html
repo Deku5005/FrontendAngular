@@ -1,38 +1,39 @@
-<!-- Cartes statistiques -->
-<div class="stats-cards">
-  <div class="card violet">
-    <div class="icon"><fa-icon [icon]="faProjectDiagram"></fa-icon></div>
+<!-- stats-cards.html -->
+<div class="cards-container">
+
+  <div class="card-frame white-front">
+    <div class="frame white-frame"></div>
+    <div class="frame blue-frame"></div>
     <div class="card-content">
-      <p class="number">8</p>
-      <p class="label">Projets actifs</p>
-      <span class="note">+2 Cette semaine</span>
+      <div class="icon-bleue"><fa-icon [icon]="faProjectDiagram"></fa-icon></div>
+      <div class="number">{{ projetsActifs.length }}</div>
+      <div class="title">Projets actifs</div>
+      <div class="subtitle blue-text">+2 Cette semaine</div>
     </div>
   </div>
 
-  <div class="card violet">
-    <div class="icon"><fa-icon [icon]="faUsers"></fa-icon></div>
+
+
+  <div class="card-frame white-front">
+    <div class="frame white-frame"></div>
+    <div class="frame blue-frame"></div>
     <div class="card-content">
-      <p class="number">24</p>
-      <p class="label">Contributeurs</p>
-      <span class="note">En attente</span>
+      <div class="icon-bleue"><fa-icon [icon]="faTrophy"></fa-icon></div>
+      <div class="number">{{badges.length}}</div>
+      <div class="title">Badges</div>
+      <div class="subtitle"></div>
     </div>
   </div>
 
-  <div class="card violet">
-    <div class="icon"><fa-icon [icon]="faTrophy"></fa-icon></div>
-    <div class="card-content">
-      <p class="number">5</p>
-      <p class="label">Badges</p>
-      <span class="note">Niveau expert</span>
+  <div class="card-frame blue-front">
+    <div class="frame blue-frame"></div>
+    <div class="frame white-frame"></div>
+    <div class="card-content white-text">
+      <div class="icon"><fa-icon [icon]="faDatabase"></fa-icon></div>
+      <div class="title">Total des Projets</div>
+      <div class="subtitle">{{projets.length}}</div>
     </div>
   </div>
 
-  <div class="card violet">
-    <div class="icon"><fa-icon [icon]="faDatabase"></fa-icon></div>
-    <div class="card-content">
-      <p class="number">8</p>
-      <p class="label">Projets actifs</p>
-      <span class="note">Niveau 4</span>
-    </div>
-  </div>
 </div>
+

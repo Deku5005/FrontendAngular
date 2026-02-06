@@ -2,26 +2,32 @@
 <app-header />
 <div class="container">
   <h1>Idee de Projets</h1>
-  <table class="data-table">
+  <table  class="data-table" *ngIf="idees.length > 0; else noProjects">
     <thead>
     <tr>
       <th>ID</th>
       <th>Titre</th>
       <th>Description</th>
-      <th>Contributeurs</th>
+      <th>Niveau</th>
+      <th>Leguer</th>
       <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of data">
-      <td>{{ item.id }}</td>
-      <td>{{ item.titre }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.contributeurs }}</td>
+    <tr *ngFor="let idee of idees">
+      <td>{{ idee.idIdeeProjet }}</td>
+      <td>{{ idee.titre }}</td>
+      <td>{{ idee.description }}</td>
+      <td>{{ idee.niveau }}</td>
+      <td>{{ idee.leguer }}</td>
       <td>
-        <button class="delete-btn" (click)="deleteRow(item.id)">Supprimer</button>
+        <button class="delete-btn" (click)="deleteIdeeProjet(idee.idIdeeProjet)">Supprimer</button>
       </td>
     </tr>
     </tbody>
   </table>
+
+    <ng-template #noProjects>
+    <p>Aucun idée trouvée.</p>
+  </ng-template>
 </div>
